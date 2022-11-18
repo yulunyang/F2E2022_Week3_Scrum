@@ -9,7 +9,7 @@
   </div>
 
   <div class="w-full h-screen relative">
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-40">
       <div class="flex justify-center items-center">
         <div><img src="@/assets/img/Sine02.png" /></div>
         <div><img src="@/assets/img/Welcome.png" class="object-contain" /></div>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="flex justify-center">
-        <a @click="setStep(1)"><img src="@/assets/img/getChanllage.png" class="object-contain" /></a>
+        <a @click="setStep(1)" class="cursor-pointer"><img src="@/assets/img/getChanllage.png" class="object-contain" /></a>
       </div>
     </div>
     <div class="absolute bottom-0 left-0 w-full">
@@ -48,6 +48,12 @@ export default {
   data () {
     return {
     }
+  },
+  created() {
+    console.log('created')
+  },
+  unmounted () {
+    console.log('unmounted')
   },
   mounted () {
     this.setGSAP()

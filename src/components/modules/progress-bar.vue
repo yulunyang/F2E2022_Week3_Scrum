@@ -2,7 +2,7 @@
   <div class="progress-bar fixed top-0 left-0 w-full z-50">
     <div class="progress-bar-inner absolute bottom-0 w-full left-0"></div>
 
-    <div class="progress-bar-main absolute top-0 w-3/12 left-0" v-if="step > 0" :style="`width: ${calcWidth}%;`">
+    <div class="progress-bar-main absolute top-0 w-3/12 left-0" v-if="step > 1" :style="`width: ${calcWidth}%;`">
       <div class="progress-bar-main-inner absolute top-0 w-full left-0"></div>
     </div>
   </div>
@@ -25,7 +25,7 @@ export default {
   computed: {
     calcWidth () {
       if (this.step > 0) {
-        return (this.step / 9) * 100
+        return ((this.step - 1) / 8) * 100
       } else {
         return 0
       }

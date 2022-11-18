@@ -14,24 +14,27 @@
       </div>
     </div>
 
-    <div class="card-scene container mx-auto">
-      <div class="flex p-4">
-        <div class="w-1/2">
+    <!-- <div class="card-scene container mx-auto">
+      <div class="flex">
+        <div class="w-1/2 p-4">
           <div>
             <h6 class="text-3xl text-white">產品待辦清單
               <span class="text-lg">Product Backlog</span>
             </h6>
           </div>
+
         </div>
         <div class="w-1/2 flex h-72">
-          <div class="flex flex-col justify-between text-white">
-            <p class="origin-center -rotate-90 mt-10">優先度低</p>
-            <p class="origin-center -rotate-90 mb-4">優先度高</p>
+          <div class="flex flex-col justify-between text-white light-gray">
+            <p class="origin-center -rotate-90 mt-8">優先度低</p>
+            <p class="origin-center -rotate-90 mb-8">優先度高</p>
           </div>
-          <div></div>
+          <div class="p-4">
+
+          </div>
         </div>
       </div>
-
+    </div> -->
       <Container
         class="h-full flex overflow-x-auto gap-8 p-8 justify-center"
         group-name="cols"
@@ -42,7 +45,6 @@
         <div class="bg-gray-200 dark:bg-gray-700 rounded-lg h-full flex-shrink-0 shadow-xl drag-bg overflow-x-hidden"
           v-for="column in scene.children" :key="column.id">
           <div class="h-full flex flex-col">
-            <!-- column -->
             <Container
               class="flex-grow overflow-y-auto overflow-x-hidden"
               orientation="vertical"
@@ -69,11 +71,10 @@
           </div>
         </div>
       </Container>
-    </div>
     <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
-        <a @click="setStep(2)"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
-        <a @click="setStep(4)"><img src="@/assets/img/CTA-finish.png" class="object-contain" /></a>
+        <a @click="setStep(2)" class="cursor-pointer"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
+        <a @click="setStep(4)" class="cursor-pointer"><img src="@/assets/img/CTA-finish.png" class="object-contain" /></a>
       </div>
     </div>
   </div>
@@ -155,7 +156,7 @@ const scene = {
     },
     {
       children: [],
-      id: "column1",
+      id: "column2",
       name: 'test1',
       props: {
         className:"card-container",
@@ -164,24 +165,6 @@ const scene = {
       type:"container"
     }
   ]
-  // children: generateItems(4, i => ({
-  //   id: `column${i}`,
-  //   type: 'container',
-  //   name: columnNames[i],
-  //   props: {
-  //     orientation: 'vertical',
-  //     className: 'card-container'
-  //   },
-  //   children: generateItems(+(Math.random() * 10).toFixed() + 5, j => ({
-  //     type: 'draggable',
-  //     id: `${i}${j}`,
-  //     props: {
-  //       className: 'card',
-  //       style: {backgroundColor: pickColor()}
-  //     },
-  //     data: lorem.slice(0, Math.floor(Math.random() * 150) + 30)
-  //   }))
-  // }))
 }
 
 export default {
@@ -248,5 +231,8 @@ export default {
 }
 .card-scene {
   background: #2F343F;
+}
+.light-gray {
+  background: #5F5F5F;
 }
 </style>

@@ -2,6 +2,10 @@
   <div id="main">
     <LoadingModule v-if="isLoading" class="z-50 overflow-hidden" />
     <ProgressBar :step="step" />
+    <!-- <Pixelated :is="step"></Pixelated> -->
+
+    <Pixelated v-if="isTransition" />
+
     <div class="w-full h-screen overflow-hidden">
       <Step1 v-if="step === 0" v-on:setStep="setStep" />
       <Step2 v-if="step === 1" v-on:setStep="setStep" />
@@ -24,6 +28,7 @@
 <script>
 import { ref } from 'vue'
 import LoadingModule from '@/components/modules/LoadingModule'
+import Pixelated from '@/components/modules/Pixelated'
 import Step1 from '@/pages/Step1.vue'
 import ProgressBar from '@/components/modules/progress-bar'
 import Step2 from '@/pages/Step2.vue'
@@ -40,6 +45,7 @@ export default {
   components: {
     LoadingModule,
     ProgressBar,
+    Pixelated,
     Step1,
     Step2,
     Step3,
@@ -54,7 +60,8 @@ export default {
   setup () {
     const isLoading = ref(false)
     const timer = ref(null)
-    const step = ref(0)
+    const step = ref(3)
+    const isTransition = ref(false)
 
     onMounted(() => {
       // isLoading.value ? setTimeOut() : null
@@ -68,10 +75,18 @@ export default {
         clearTimeout(timeout.value)
       }
     }
-
+    const setTimeOutTransition = () => {
+      isTransition.value = true
+      if (isTransition.value) {
+        const timeout = setTimeout(() => {
+          isTransition.value = false
+        }, 2000)
+        clearTimeout(timeout.value)
+      }
+    }
     const setStep = (setStep) => {
-      console.log(setStep)
       step.value = setStep
+      setTimeOutTransition()
     }
 
     return {
@@ -79,7 +94,9 @@ export default {
       isLoading,
       timer,
       setTimeOut,
-      setStep
+      setStep,
+      isTransition,
+      setTimeOutTransition
     }
   }
 }

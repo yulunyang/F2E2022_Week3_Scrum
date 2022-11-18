@@ -46,8 +46,8 @@
     </div>
     <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
-        <a @click="setStep(3)"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
-        <a @click="setStep(5)"><img src="@/assets/img/startGame.png" class="object-contain" /></a>
+        <a @click="setStep(3)" class="cursor-pointer"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
+        <a @click="setStep(5)" class="cursor-pointer"><img src="@/assets/img/startGame.png" class="object-contain" /></a>
       </div>
     </div>
   </div>

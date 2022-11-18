@@ -20,8 +20,8 @@
 
     <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
-        <a @click="setStep(7)"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
-        <a @click="setStep(9)"><img src="@/assets/img/CTA-understand.png" class="object-contain" /></a>
+        <a @click="setStep(7)" class="cursor-pointer"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
+        <a @click="setStep(9)" class="cursor-pointer"><img src="@/assets/img/CTA-understand.png" class="object-contain" /></a>
       </div>
     </div>
   </div>

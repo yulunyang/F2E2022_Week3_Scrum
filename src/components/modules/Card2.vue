@@ -4,8 +4,10 @@
     <div class="p-4 space-y-2 text-left">
       <p class="text-2xl">{{ item.data }}</p>
       <p class="text-sm" v-if="item.text">{{ item.text }}</p>
-      <p class="scrum-text-yellow">5點<span class="w-2 h-2 scrum-bg-yellow"></span>
-      </p>
+      <div class="scrum-text-yellow inline-flex items-center">
+        <p class="mr-2">{{ item.points }}點</p>
+        <div class="points mr-1" v-for="n in item.points" :key="n"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -16,7 +18,7 @@ export default {
   name: "Cards",
   props: {
     item: Object,
-  },
+  }
 };
 </script>
 
@@ -26,7 +28,14 @@ export default {
   background: #2F343F;
   color: white;
   &:active {
-    background: rgba(255, 17, 119, 0.1);
+    background: #FFF205;
+    color: #454545;
+    border: 6px solid #ffffff;
+  }
+  .points {
+    width: 8px;
+    height: 8px;
+    background: #FFF205;
   }
 }
 </style>

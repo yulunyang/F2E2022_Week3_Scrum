@@ -165,7 +165,19 @@ export default {
       deep: true
     }
   },
-
+  computed: {
+    calcPoints () {
+      let n = 0
+      if (this.listTwo.length > 0) {
+        for (let i = 0; i < this.listTwo.length; i++) {
+          n += this.listTwo[i].points
+        }
+        return n
+      } else {
+        return 0
+      }
+    }
+  },
   methods: {
     onDrop(collection, dropResult) {
       this[collection] = applyDrag(this[collection], dropResult)

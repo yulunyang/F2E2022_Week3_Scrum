@@ -1,29 +1,16 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <!-- <div class="flex justify-center container mx-auto ">
-    <div class="w-1/2 p-4">
-      <div class="scrum-bg-black p-3">
-        <h6 class="text-3xl text-white text-left">產品待辦清單
-          <span class="text-lg">Product Backlog</span>
-        </h6>
+  <div class="mt-4">
+    <CardList />
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-20 flex justify-end items-center container mx-auto z-50 ">
+      <div class="flex">
+        <a @click="setStep(4)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
+          <p class="z-10">&lt;</p>
+        </a>
+        <a @click="setStep(6)" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+          <p class="z-10">準備好了！開始 Sprint</p>
+        </a>
       </div>
-    </div>
-    <div class="w-1/2 p-4">
-      <div class="scrum-bg-black p-3">
-        <div class="flex justify-between items-end mb-4">
-          <h6 class="text-3xl text-white">開發 A 組的短衝待辦清單
-          </h6>
-          <span class="text-lg scrum-text-yellow">20 點 / 5 人</span>
-        </div>
-        <ProgressBarSquare />
-      </div>
-    </div>
-  </div> -->
-  <CardList />
-  <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
-    <div class="flex">
-      <a @click="setStep(4)" class="cursor-pointer"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
-      <a @click="setStep(6)" class="cursor-pointer"><img src="@/assets/img/CTA-ready.png" class="object-contain" /></a>
     </div>
   </div>
 </template>

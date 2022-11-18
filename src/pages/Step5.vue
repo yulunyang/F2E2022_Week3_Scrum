@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-full main-h relative step3">
+  <div class="w-full main-h relative step5 mt-4">
     <div class="flex container mx-auto mb-4">
       <div class="w-1/6 px-5"><img src="@/assets/img/role1.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">
@@ -44,10 +44,14 @@
         </div>
       </div>
     </div>
-    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-20 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
-        <a @click="setStep(3)" class="cursor-pointer"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
-        <a @click="setStep(5)" class="cursor-pointer"><img src="@/assets/img/startGame.png" class="object-contain" /></a>
+          <a @click="setStep(3)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
+            <p class="z-10">&lt;</p>
+          </a>
+        <a @click="setStep(5)" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+          <p class="z-10">沒問題，我來挑戰！</p>
+        </a>
       </div>
     </div>
   </div>

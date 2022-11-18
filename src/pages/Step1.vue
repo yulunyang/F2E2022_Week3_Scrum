@@ -24,7 +24,9 @@
         </div>
       </div>
       <div class="flex justify-center">
-        <a @click="setStep(1)" class="cursor-pointer"><img src="@/assets/img/getChanllage.png" class="object-contain" /></a>
+        <a @click="setStep(1)" class="cursor-pointer btn-big inline-flex justify-center items-center">
+          <p class="z-10">接受挑戰</p>
+        </a>
       </div>
     </div>
     <div class="absolute bottom-0 left-0 w-full">
@@ -48,12 +50,6 @@ export default {
   data () {
     return {
     }
-  },
-  created() {
-    console.log('created')
-  },
-  unmounted () {
-    console.log('unmounted')
   },
   mounted () {
     this.setGSAP()

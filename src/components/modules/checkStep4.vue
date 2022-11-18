@@ -8,17 +8,23 @@
 
           <div v-show="showIdx === 0">
             <p class="text-4xl mb-8">咦～你好像還沒完成唷！</p>
-            <a class="cursor-pointer inline-block" @click="closeCheckStep4()"><img src="@/assets/img/understand-btn.png" class="object-contain" /></a>
+          <a @click="closeCheckStep4()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+            <p class="z-10">返回挑戰</p>
+          </a>
           </div>
           <div v-show="showIdx === 1">
             <p class="text-4xl mb-8 leading-loose">你做得非常好！<br/>
                 你已經能掌握基礎產品代辦清單的優先度排序<br/>
                 接下來再繼續挑戰吧！</p>
-            <a class="cursor-pointer inline-block"  @click="nextStep()"><img src="@/assets/img/understand-btn.png" class="object-contain" /></a>
+            <a @click="nextStep()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+              <p class="z-10">前往下個挑戰</p>
+            </a>
           </div>
           <div v-show="showIdx === 2">
             <p class="text-4xl mb-8">順序可以再調整看看唷！</p>
-            <a class="cursor-pointer inline-block"  @click="closeCheckStep4()"><img src="@/assets/img/understand-btn.png" class="object-contain" /></a>
+            <a @click="closeCheckStep4()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+              <p class="z-10">再試試看</p>
+            </a>
           </div>
         </div>
       </div>

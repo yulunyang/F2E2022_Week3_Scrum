@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-full main-h relative step3 mt-3">
+  <CheckStep9 v-if="checkList" @setStep="setStep"  @closeCheckStep4="closeCheckStep4" @newList="newList" />
+  <div class="w-full main-h relative step9 mt-4">
     <div class="flex container mx-auto mb-6">
       <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">
@@ -56,23 +57,29 @@
       </div>
     </div>
 
-    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-20 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
-        <a @click="setStep(7)" class="cursor-pointer"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
-        <a @click="setStep(9)" class="cursor-pointer"><img src="@/assets/img/CTA-understand.png" class="object-contain" /></a>
+        <a @click="setStep(7)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
+          <p class="z-10">&lt;</p>
+        </a>
+        <a @click="setStep(9)" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+          <p class="z-10">我想我了解了！</p>
+        </a>
+        <!-- <a @click="setStep(9)" class="cursor-pointer"><img src="@/assets/img/CTA-understand.png" class="object-contain" /></a> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
+import CheckStep9 from '@/components/modules/checkStep9'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'step9',
-  components: { },
+  components: { CheckStep9 },
   data () {
     return {
+      checkList: false,
       array1: [
         { id: 0, text: '這次我幫了很多人救火耶。' },
         { id: 0, text: '大家在開發上都會互相 cover，讓任務準時在時間內完成。' }
@@ -87,6 +94,16 @@ export default {
   methods: {
     setStep (val) {
       this.$emit('setStep', val)
+    },
+    closeCheckStep4 () {
+      this.checkList = false
+    },
+    newList (newList) {
+      console.log(newList)
+      this.fininshArray = newList
+    },
+    checkListFunc () {
+      this.setStep(4)
     }
   }
 }

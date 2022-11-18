@@ -2,7 +2,7 @@
   <div class="progress-bar w-full z-50">
     <div class="progress-bar-inner absolute bottom-0 w-full left-0"></div>
 
-    <div class="progress-bar-main absolute top-0 w-3/12 left-0" v-if="step > 1" :style="`width: ${calcWidth}%;`">
+    <div class="progress-bar-main absolute top-0 w-3/12 left-0" v-if="step > 1" :style="`width: ${calcWidth}%;`" :class="{ 'hiddenFlag': step  === 9 }">
       <div class="progress-bar-main-inner absolute top-0 w-full left-0"></div>
     </div>
   </div>
@@ -54,6 +54,15 @@ export default {
       right: -46px;
       bottom: 0%;
       z-index: 99;
+    }
+  }
+  .hiddenFlag {
+    &::after {
+      content: '';
+      background: none;
+      width: 0;
+      height: 0;
+      right: 10%;
     }
   }
   .progress-bar-main-inner {

@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-full main-h relative step3">
+  <div class="w-full main-h relative step7 mt-4">
     <div class="flex container mx-auto mb-4">
       <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">
@@ -48,10 +48,14 @@
         如何維持我們已有的成功經驗，優化工作流程、讓團隊有變得更好的機會。<br/>
         推薦工具：<span><img src="@/assets/img/confluence.png" class="object-contain" /></span></p>
     </div>
-    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-20 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
-        <a @click="setStep(5)" class="cursor-pointer"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
-        <a @click="setStep(7)" class="cursor-pointer"><img src="@/assets/img/understand-btn.png" class="object-contain" /></a>
+          <a @click="setStep(5)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
+            <p class="z-10">&lt;</p>
+          </a>
+        <a @click="setStep(7)" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+          <p class="z-10">我瞭解了</p>
+        </a>
       </div>
     </div>
   </div>

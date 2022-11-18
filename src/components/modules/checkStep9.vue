@@ -8,18 +8,17 @@
 
           <div v-show="showIdx === 0">
             <p class="text-4xl mb-8 leading-loose">你做得非常好！<br/>
-              你已經了解短衝的流程，<br/>
-              接下來再繼續挑戰吧！</p>
-            <a @click="closeCheckStep4()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
-              <p class="z-10">前往下個挑戰</p>
-            </a>
+              你已經了解如何給予『正面表述』的回饋！</p>
+              <a @click="nextStep()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+                <p class="z-10">完成挑戰</p>
+              </a>
           </div>
           <div v-show="showIdx === 1">
             <p class="text-4xl mb-8 leading-loose">差一點！<br/>
-              再思考一下流程，你可以的！</p>
-            <a @click="nextStep()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
-              <p class="z-10">再試試看</p>
-            </a>
+              請你再思考看看，哪一些是符合『正面表述』的回饋？</p>
+              <a @click="nextStep()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+                <p class="z-10">再試試看</p>
+              </a>
           </div>
         </div>
       </div>

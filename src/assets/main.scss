@@ -1,24 +1,88 @@
 .main-h {
-    height: calc(100vh - 48px);
+  height: calc(100vh - 48px);
 }
 .scrum-bg-purple {
-    background: linear-gradient(0deg, rgba(255, 17, 119, 0.3), rgba(255, 17, 119, 0.3)), #181E2A;
+  background: linear-gradient(0deg, rgba(255, 17, 119, 0.3), rgba(255, 17, 119, 0.3)), #181E2A;
 }
 .scrum-bg-green {
-    background: linear-gradient(0deg, rgba(124, 255, 1, 0.3), rgba(124, 255, 1, 0.3)), #181E2A;
+  background: linear-gradient(0deg, rgba(124, 255, 1, 0.3), rgba(124, 255, 1, 0.3)), #181E2A;
 }
 .scrum-bg-oliveGreen {
-    background: linear-gradient(0deg, rgba(255, 242, 5, 0.3), rgba(255, 242, 5, 0.3)), #181E2A;
+  background: linear-gradient(0deg, rgba(255, 242, 5, 0.3), rgba(255, 242, 5, 0.3)), #181E2A;
 }
 .scrum-bg-black {
-    background: #2F343F;
+  background: #2F343F;
 }
 .scrum-bg-gray {
-    background: #464B55;
+  background: #464B55;
 }
 .scrum-bg-yellow {
-    background: #FFF205;
+  background: #FFF205;
 }
 .scrum-text-yellow {
-    color: #FFF205;
+  color: #FFF205;
+}
+
+.btn-big {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  height: 96px;
+  background: #0693E3;
+  box-shadow: 8px 8px 0px 0px rgba(170,170,170,0.8);
+  color: white;
+  text-shadow: 0.1em 0.1em 0.2em black;
+  position: relative;
+  font-size: 36px;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    bottom: 0%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 0;
+  }
+}
+.btn-base {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  height: 96px;
+  background: #0693E3;
+  box-shadow: 8px 8px 0px 0px rgba(170,170,170,0.8);
+  color: white;
+  text-shadow: 0.1em 0.1em 0.2em black;
+  position: relative;
+  font-size: 24px;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    bottom: 0%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 0;
+  }
+}
+.btn-small {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  height: 96px;
+  background: #0693E3;
+  box-shadow: 8px 8px 0px 0px rgba(170,170,170,0.8);
+  color: white;
+  text-shadow: 0.1em 0.1em 0.2em black;
+  position: relative;
+  font-size: 12px;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    bottom: 0%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 0;
+  }
 }

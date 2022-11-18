@@ -18,7 +18,8 @@ export default {
   },
   props: {
     points: {
-      type: Number
+      type: Number,
+      default: 13
     }
   },
   computed: {

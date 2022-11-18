@@ -2,31 +2,31 @@
   <div class="flex justify-center container mx-auto ">
     <div class="w-1/2 p-4">
       <div class="scrum-bg-black p-3 h-full">
-        <!-- <h6 class="text-3xl text-white text-left">產品待辦清單
-          <span class="text-lg">Product Backlog</span>
-        </h6> -->
-          <div class="mb-4">
-            <h6 class="text-3xl text-white text-left">產品待辦清單
-              <span class="text-lg">Product Backlog</span>
-            </h6>
-          </div>
-          <div class="p-4 flex-1">
-            <Container
-              drag-class="card-ghost"
-              drop-class="card-ghost-drop h-full"
-              :drop-placeholder="dropPlaceholderOptions"
-              :get-child-payload="getChildPayload1"
-              group-name="1"
-              @drop="onDrop('listOne', $event)"
-            >
-              <Draggable v-for="(item, $index) in listOne" :key="$index">
-                <Card :item="item" />
-              </Draggable>
-            </Container>
-          </div>
+        <div class="mb-4">
+          <h6 class="text-3xl text-white text-left">產品待辦清單
+            <span class="text-lg">Product Backlog</span>
+          </h6>
+        </div>
+        <div class="p-4 flex-1">
+          <Container
+            drag-class="card-ghost"
+            drop-class="card-ghost-drop h-full"
+            :drop-placeholder="dropPlaceholderOptions"
+            :get-child-payload="getChildPayload1"
+            group-name="1"
+            @drop="onDrop('listOne', $event)"
+          >
+            <Draggable v-for="(item, $index) in listOne" :key="$index">
+              <Card :item="item" />
+            </Draggable>
+          </Container>
+        </div>
       </div>
     </div>
-    <div class="w-1/2 p-4">
+    <div class="w-1/2 p-4 relative">
+      <!-- <div class="warning-pop absolute left-0 top-0 w-full h-full">
+        <p class="text-3xl scrum-text-yellow absolute left-1/2 -translate-x-1/2 top-36">超過點數了！</p>
+      </div> -->
       <div class="scrum-bg-black p-3 h-full">
         <div class="flex justify-between items-end mb-4">
           <h6 class="text-3xl text-white">開發 A 組的短衝待辦清單
@@ -148,22 +148,21 @@ export default {
           points: 8
         }
       ],
-      listTwo: [
-      ]
+      listTwo: []
     };
   },
   watch: {
-    listTwo: {
-      handler(newValue, oldValue) {
-        // let self = this
-        if (newValue !== oldValue) {
-          console.log(`更改後${newValue}，更改前${oldValue}`)
-          // self.$emit('newList', newValue)
-          this.$emit('newList', newValue)
-        }
-      },
-      deep: true
-    }
+    // listTwo: {
+    //   handler(newValue, oldValue) {
+    //     // let self = this
+    //     if (newValue !== oldValue) {
+    //       console.log(`更改後${newValue}，更改前${oldValue}`)
+    //       // self.$emit('newList', newValue)
+    //       this.$emit('newList', newValue)
+    //     }
+    //   },
+    //   deep: true
+    // }
   },
   computed: {
     calcPoints () {
@@ -213,5 +212,8 @@ export default {
 .card-ghost-drop {
   transition: transform 0.18s ease-in-out;
   transform: rotateZ(0deg);
+}
+.warning-pop {
+  background: rgb(24, 30, 42, 0.9);
 }
 </style>

@@ -1,8 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <CheckStep9 v-if="checkList" @setStep="setStep"  @closeCheckStep4="closeCheckStep4" @newList="newList" />
+  <CheckStep9 v-if="checkList" @setStep="setStep"  @closeCheckStep4="closeCheckStep4" :result="result" />
   <div class="w-full main-h relative step9 mt-4">
-    <div class="flex container mx-auto mb-6">
+    <div class="flex container mx-auto mb-12">
       <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">
         <div class="flex items-center quote py-4 px-8 mb-2 scrum-bg-oliveGreen">
@@ -21,38 +21,23 @@
 
     <div class="container mx-auto flex">
       <div class="w-1/2 p-2">
-        <p class="scrum-text-yellow text-3xl mb-6">做得好的地方</p>
-
-        <div class="item text-white text-3xl scrum-bg-black mb-4 p-3 h-32 flex items-center">
+        <p class="scrum-text-yellow text-4xl mb-6">做得好的地方</p>
+        <div class="item text-white text-3xl scrum-bg-black p-3 h-36 flex items-center" v-for="(item, idx) in array1" :key="idx" @click="selected1 = idx" :class="{ 'active': selected1 === idx }">
           <div class="w-1/12">
             <img src="@/assets/img/Union-arrow.png" class="object-contain block z-10 off" />
             <img src="@/assets/img/Union-arrow-active.png" class="object-contain z-10 on" />
           </div>
-          <p class="flex-1 text-left">這次我幫了很多人救火耶。</p>
-        </div>
-        <div class="item text-white text-3xl scrum-bg-black mb-4 h-32 flex items-center">
-          <div class="w-1/12">
-            <img src="@/assets/img/Union-arrow.png" class="object-contain block z-10 off" />
-            <img src="@/assets/img/Union-arrow-active.png" class="object-contain z-10 on" />
-          </div>
-          <p class="flex-1 text-left">大家在開發上都會互相 cover，讓任務準時在時間內完成。</p>
+          <p class="flex-1 text-left">{{ item.text }}</p>
         </div>
       </div>
       <div class="w-1/2 p-2">
-        <p class="scrum-text-yellow text-3xl mb-6">有哪些可以做得更好？</p>
-        <div class="item text-white text-3xl scrum-bg-black mb-4 p-3 h-32 flex items-center">
+        <p class="scrum-text-yellow text-4xl mb-6">有哪些可以做得更好？</p>
+        <div class="item text-white text-3xl scrum-bg-black p-3 h-36 flex items-center" v-for="(item, idx) in array2" :key="idx" @click="selected2 = idx" :class="{ 'active': selected2 === idx }">
           <div class="w-1/12">
             <img src="@/assets/img/Union-arrow.png" class="object-contain block z-10 off" />
             <img src="@/assets/img/Union-arrow-active.png" class="object-contain z-10 on" />
           </div>
-          <p class="flex-1 text-left">可以記錄這次的開發時間，讓預估團隊點數可以更精準。</p>
-        </div>
-        <div class="item text-white text-3xl scrum-bg-black mb-4 p-3 h-32 flex items-center">
-          <div class="w-1/12">
-            <img src="@/assets/img/Union-arrow.png" class="object-contain block z-10 off" />
-            <img src="@/assets/img/Union-arrow-active.png" class="object-contain z-10 on" />
-          </div>
-          <p class="flex-1 text-left">開發時間預估不準確，請後端下次改進，避免 delay 到我。</p>
+          <p class="flex-1 text-left">{{ item.text }}</p>
         </div>
       </div>
     </div>
@@ -62,10 +47,9 @@
         <a @click="setStep(7)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
           <p class="z-10">&lt;</p>
         </a>
-        <a @click="setStep(9)" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+        <a @click="checkList = true" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
           <p class="z-10">我想我了解了！</p>
         </a>
-        <!-- <a @click="setStep(9)" class="cursor-pointer"><img src="@/assets/img/CTA-understand.png" class="object-contain" /></a> -->
       </div>
     </div>
   </div>
@@ -81,13 +65,24 @@ export default {
     return {
       checkList: false,
       array1: [
-        { id: 0, text: '這次我幫了很多人救火耶。' },
-        { id: 0, text: '大家在開發上都會互相 cover，讓任務準時在時間內完成。' }
+        { id: 0, text: '這次我幫了很多人救火耶。', result: false },
+        { id: 1, text: '大家在開發上都會互相 cover，讓任務準時在時間內完成。', result: true }
       ],
       array2: [
-        { id: 0, text: '可以記錄這次的開發時間，讓預估團隊點數可以更精準。' },
-        { id: 0, text: '開發時間預估不準確，請後端下次改進，避免 delay 到我。' }
-      ]
+        { id: 2, text: '可以記錄這次的開發時間，讓預估團隊點數可以更精準。', result: true },
+        { id: 3, text: '開發時間預估不準確，請後端下次改進，避免 delay 到我。', result: false }
+      ],
+      selected1: -1,
+      selected2: -1
+    }
+  },
+  computed: {
+    result () {
+      if (this.selected1 > -1 && this.selected2 > -1 && this.array1[this.selected1].result && this.array2[this.selected2].result) {
+        return true
+      } else {
+        return false
+      }
     }
   },
   mounted () {},
@@ -109,10 +104,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .active {
-    color: #181E2A;
-    background: #FFF205;
-  }
+  // .active {
+  //   color: #181E2A;
+  //   background: #FFF205;
+  // }
   .item {
     .on {
       display: none;
@@ -128,6 +123,12 @@ export default {
     }
   }
   .item.active {
-    color:#FFF205
+    color:#FFF205;
+    .on {
+      display: block;
+    }
+    .off {
+      display: none;
+    }
   }
 </style>

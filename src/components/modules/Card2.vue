@@ -5,7 +5,7 @@
       <p class="text-2xl">{{ item.data }}</p>
       <p class="text-sm" v-if="item.text">{{ item.text }}</p>
       <div class="scrum-text-yellow inline-flex items-center">
-        <p class="mr-2">{{ item.points }}點</p>
+        <p class="mr-2 point-text">{{ item.points }}點</p>
         <div class="points mr-1" v-for="n in item.points" :key="n"></div>
       </div>
     </div>
@@ -31,6 +31,14 @@ export default {
     background: #FFF205;
     color: #454545;
     border: 6px solid #ffffff;
+    .point-text {
+      color: #454545;
+    }
+    .points {
+      width: 8px;
+      height: 8px;
+      background: #454545;
+    }
   }
   .points {
     width: 8px;

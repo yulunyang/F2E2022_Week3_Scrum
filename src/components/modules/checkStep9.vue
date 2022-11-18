@@ -6,17 +6,17 @@
         <div class="">
           <div class="mb-8"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100 mx-auto" /></div>
 
-          <div v-show="showIdx === 0">
+          <div v-show="result">
             <p class="text-4xl mb-8 leading-loose">你做得非常好！<br/>
               你已經了解如何給予『正面表述』的回饋！</p>
               <a @click="nextStep()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
                 <p class="z-10">完成挑戰</p>
               </a>
           </div>
-          <div v-show="showIdx === 1">
+          <div v-show="!result">
             <p class="text-4xl mb-8 leading-loose">差一點！<br/>
               請你再思考看看，哪一些是符合『正面表述』的回饋？</p>
-              <a @click="nextStep()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+              <a @click="closeCheckStep4()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
                 <p class="z-10">再試試看</p>
               </a>
           </div>
@@ -31,9 +31,9 @@
 export default {
   components: { },
   props: {
-    showIdx: {
-      type: Number,
-      default: 0
+    result: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -46,7 +46,7 @@ export default {
       this.$emit('closeCheckStep4')
     },
     nextStep () {
-      this.$emit('nextStep')
+      this.$emit('setStep', 9)
     }
   }
 }

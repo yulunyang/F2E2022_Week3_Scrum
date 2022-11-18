@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="flex justify-center">
-        <a><img src="@/assets/img/getChanllage.png" class="object-contain" /></a>
+        <a @click="setStep(1)"><img src="@/assets/img/getChanllage.png" class="object-contain" /></a>
       </div>
     </div>
     <div class="absolute bottom-0 left-0 w-full">
@@ -62,28 +62,19 @@ export default {
       })
       typing.to(".typing1", {
         text: "哈囉，歡迎加入 TT 資訊！",
-        duration: 1.5,
-        // scrollTrigger: {
-        //   trigger: ".typing1",
-        //   toggleActions: "play pause resume reset",
-        // }
+        duration: 1.5
       })
       typing.to(".typing2", {
         text: "在正式加入專案開發之前，需要請你先了解 Scrum 的流程與精神！",
-        duration: 5,
-        // scrollTrigger: {
-        //   trigger: ".typing2",
-        //   toggleActions: "play pause resume reset",
-        // }
+        duration: 5
       })
       typing.to(".typing3", {
         text: "請接受挑戰任務，成功通過 Scrum 新手村的挑戰任務吧～",
-        duration: 5,
-        // scrollTrigger: {
-        //   trigger: ".typing3",
-        //   toggleActions: "play pause resume reset",
-        // }
+        duration: 5
       })
+    },
+    setStep (val) {
+      this.$emit('setStep', val)
     }
   }
 }

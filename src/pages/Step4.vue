@@ -70,12 +70,12 @@
         </div>
       </Container>
     </div>
-    <!-- <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
-        <a><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
-        <a><img src="@/assets/img/CTA-finish.png" class="object-contain" /></a>
+        <a @click="setStep(2)"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
+        <a @click="setStep(4)"><img src="@/assets/img/CTA-finish.png" class="object-contain" /></a>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -203,6 +203,9 @@ export default {
   },
   mounted(){},
   methods: {
+    setStep (val) {
+      this.$emit('setStep', val)
+    },
     onColumnDrop (dropResult) {
       const scene = Object.assign({}, this.scene)
       scene.children = applyDrag(scene.children, dropResult)

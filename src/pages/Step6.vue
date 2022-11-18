@@ -18,25 +18,12 @@
       </div>
     </div>
   </div>
-
-    <!-- <div class="card-scene container mx-auto">
-      <div class="flex p-4">
-        <div class="w-1/2">
-          <div>
-            <h6 class="text-3xl text-white">產品待辦清單
-              <span class="text-lg">Product Backlog</span>
-            </h6>
-          </div>
-        </div>
-        <div class="w-1/2 flex h-72">
-          <div class="flex flex-col justify-between text-white">
-            <p class="origin-center -rotate-90 mt-10">優先度低</p>
-            <p class="origin-center -rotate-90 mb-4">優先度高</p>
-          </div>
-          <div></div>
-        </div>
-      </div>
-    </div> -->
+  <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
+    <div class="flex">
+      <a @click="setStep(4)"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
+      <a @click="setStep(6)"><img src="@/assets/img/CTA-ready.png" class="object-contain" /></a>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -49,6 +36,9 @@ export default {
   },
   mounted () {},
   methods: {
+    setStep (val) {
+      this.$emit('setStep', val)
+    }
   }
 }
 </script>

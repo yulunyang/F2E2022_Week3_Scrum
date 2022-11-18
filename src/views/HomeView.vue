@@ -3,16 +3,16 @@
     <LoadingModule v-if="isLoading" class="z-50 overflow-hidden" />
     <ProgressBar :step="step" />
     <div class="w-full h-screen overflow-hidden">
-      <Step1 v-if="step === 0" />
-      <Step2 v-if="step === 1"/>
-      <Step3 v-if="step === 2"/>
-      <Step4 v-if="step === 3"/>
-      <Step5 v-if="step === 4"/>
-      <Step6 v-if="step === 5"/>
-      <Step7 v-if="step === 6"/>
-      <Step8 v-if="step === 7"/>
-      <Step9 v-if="step === 8"/>
-      <Step10 v-if="step === 9"/>
+      <Step1 v-if="step === 0" v-on:setStep="setStep" />
+      <Step2 v-if="step === 1" v-on:setStep="setStep" />
+      <Step3 v-if="step === 2" v-on:setStep="setStep" />
+      <Step4 v-if="step === 3" v-on:setStep="setStep" />
+      <Step5 v-if="step === 4" v-on:setStep="setStep" />
+      <Step6 v-if="step === 5" v-on:setStep="setStep" />
+      <Step7 v-if="step === 6" v-on:setStep="setStep" />
+      <Step8 v-if="step === 7" v-on:setStep="setStep" />
+      <Step9 v-if="step === 8" v-on:setStep="setStep" />
+      <Step10 v-if="step === 9" v-on:setStep="setStep"/>
     </div>
     <div class="absolute bottom-0 left-0 w-full">
       <div class="hr6 w-full"></div>
@@ -54,7 +54,7 @@ export default {
   setup () {
     const isLoading = ref(false)
     const timer = ref(null)
-    const step = ref(9)
+    const step = ref(0)
 
     onMounted(() => {
       // isLoading.value ? setTimeOut() : null
@@ -69,11 +69,17 @@ export default {
       }
     }
 
+    const setStep = (setStep) => {
+      console.log(setStep)
+      step.value = setStep
+    }
+
     return {
       step,
       isLoading,
       timer,
-      setTimeOut
+      setTimeOut,
+      setStep
     }
   }
 }

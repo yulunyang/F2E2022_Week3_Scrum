@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-full h-screen relative step3 pt-24">
+  <div class="w-full main-h relative step3">
     <div class="flex container mx-auto mb-4">
       <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">
@@ -20,15 +20,15 @@
     </div>
 
     <div class="flex container mx-auto p-6 scrum-bg-gray text-white">
-      <div class="w-1/3 py-3" :class="{ 'active': selected === 0 }">
+      <div class="w-1/3 py-3 cursor-pointer" :class="{ 'active': selected === 0 }" @click="selected = 0">
         <p class="text-2xl mb-1">每日站立會議</p>
         <p>Daily Scrum</p>
       </div>
-      <div class="w-1/3 p-3" :class="{ 'active': selected === 1 }">
+      <div class="w-1/3 p-3 cursor-pointer" :class="{ 'active': selected === 1 }" @click="selected = 1">
         <p class="text-2xl mb-1">短衝檢視會議</p>
         <p>Sprint Review</p>
       </div>
-      <div class="w-1/3 p-3" :class="{ 'active': selected === 2 }">
+      <div class="w-1/3 p-3 cursor-pointer" :class="{ 'active': selected === 2 }" @click="selected = 2">
         <p class="text-2xl mb-1">短衝自省會議</p>
         <p>Sprint Retrospective</p>
       </div>
@@ -65,7 +65,7 @@ export default {
   components: { },
   data () {
     return {
-      selected: 2,
+      selected: 0,
     }
   },
   mounted () {},

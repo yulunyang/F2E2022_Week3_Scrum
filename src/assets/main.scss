@@ -1,3 +1,6 @@
+.main-h {
+    height: calc(100vh - 48px);
+}
 .scrum-bg-purple {
     background: linear-gradient(0deg, rgba(255, 17, 119, 0.3), rgba(255, 17, 119, 0.3)), #181E2A;
 }
@@ -12,6 +15,9 @@
 }
 .scrum-bg-gray {
     background: #464B55;
+}
+.scrum-bg-yellow {
+    background: #FFF205;
 }
 .scrum-text-yellow {
     color: #FFF205;

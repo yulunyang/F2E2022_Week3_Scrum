@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-full h-screen relative step3 pt-24">
+  <div class="w-full main-h relative step3">
     <div class="flex container mx-auto mb-4">
       <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">

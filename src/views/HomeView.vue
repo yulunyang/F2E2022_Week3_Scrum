@@ -6,17 +6,17 @@
 
     <Pixelated v-if="isTransition" />
 
-    <div class="w-full h-screen overflow-hidden">
-      <Step1 v-if="step === 0" v-on:setStep="setStep" />
-      <Step2 v-if="step === 1" v-on:setStep="setStep" />
-      <Step3 v-if="step === 2" v-on:setStep="setStep" />
-      <Step4 v-if="step === 3" v-on:setStep="setStep" />
-      <Step5 v-if="step === 4" v-on:setStep="setStep" />
-      <Step6 v-if="step === 5" v-on:setStep="setStep" />
-      <Step7 v-if="step === 6" v-on:setStep="setStep" />
-      <Step8 v-if="step === 7" v-on:setStep="setStep" />
-      <Step9 v-if="step === 8" v-on:setStep="setStep" />
-      <Step10 v-if="step === 9" v-on:setStep="setStep"/>
+    <div class="w-full main-h overflow-hidden">
+      <Step1 v-if="step === 0" @setStep="setStep" />
+      <Step2 v-if="step === 1" @setStep="setStep" />
+      <Step3 v-if="step === 2" @setStep="setStep" />
+      <Step4 v-if="step === 3" @setStep="setStep" />
+      <Step5 v-if="step === 4" @setStep="setStep" />
+      <Step6 v-if="step === 5" @setStep="setStep" />
+      <Step7 v-if="step === 6" @setStep="setStep" />
+      <Step8 v-if="step === 7" @setStep="setStep" />
+      <Step9 v-if="step === 8" @setStep="setStep" />
+      <Step10 v-if="step === 9" @setStep="setStep"/>
     </div>
     <div class="absolute bottom-0 left-0 w-full">
       <div class="hr6 w-full"></div>
@@ -60,7 +60,7 @@ export default {
   setup () {
     const isLoading = ref(false)
     const timer = ref(null)
-    const step = ref(3)
+    const step = ref(8)
     const isTransition = ref(false)
 
     onMounted(() => {

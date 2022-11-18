@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-full h-screen relative">
+  <div class="w-full main-h relative">
     <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full">
       <div class="flex justify-center items-center mb-12">
         <div class="flex">

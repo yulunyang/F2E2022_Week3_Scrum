@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <div class="w-full h-screen relative">
+  <div class="w-full main-h relative">
     <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-40">
       <div class="flex justify-center items-center">
         <div><img src="@/assets/img/Sine02.png" /></div>
@@ -34,7 +34,7 @@
       <div class="hr4 w-full"></div>
       <div class="hr5 w-full"></div>
       <div class="hr6 w-full"></div>
-      <p class="text-white text-center absolute bottom-1 left-1/2 -translate-x-1/2">2022 F2E 4th week3</p>
+      <p class="text-white text-center absolute bottom-1 left-1/2 -translate-x-1/2 opacity-0">2022 F2E 4th week3</p>
     </div>
   </div>
 </template>

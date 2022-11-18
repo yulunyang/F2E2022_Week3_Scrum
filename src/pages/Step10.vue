@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-full h-screen relative step3 overflow-hidden">
+  <div class="w-full main-h relative step3 overflow-hidden">
     <FireWorks class="z-50" />
     <div class="absolute left-1/2 bottom-16 -translate-x-1/2 z-50 w-full">
 

@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-full h-screen relative step3 pt-24">
+  <CheckStep4 v-if="checkList" @setStep="setStep"  @closeCheckStep4="closeCheckStep4" @newList="newList" />
+  <div class="w-full main-h relative step3">
     <div class="flex container mx-auto">
       <div class="w-1/6 px-3"><img src="@/assets/img/role1.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">
@@ -13,208 +14,43 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="card-scene container mx-auto">
-      <div class="flex">
-        <div class="w-1/2 p-4">
-          <div>
-            <h6 class="text-3xl text-white">產品待辦清單
-              <span class="text-lg">Product Backlog</span>
-            </h6>
-          </div>
-
-        </div>
-        <div class="w-1/2 flex h-72">
-          <div class="flex flex-col justify-between text-white light-gray">
-            <p class="origin-center -rotate-90 mt-8">優先度低</p>
-            <p class="origin-center -rotate-90 mb-8">優先度高</p>
-          </div>
-          <div class="p-4">
-
-          </div>
-        </div>
-      </div>
-    </div> -->
-      <Container
-        class="h-full flex overflow-x-auto gap-8 p-8 justify-center"
-        group-name="cols"
-        tag="div"
-        :class="{ mycontainer: true }"
-        orientation="horizontal"
-        @drop="onColumnDrop($event)">
-        <div class="bg-gray-200 dark:bg-gray-700 rounded-lg h-full flex-shrink-0 shadow-xl drag-bg overflow-x-hidden"
-          v-for="column in scene.children" :key="column.id">
-          <div class="h-full flex flex-col">
-            <Container
-              class="flex-grow overflow-y-auto overflow-x-hidden"
-              orientation="vertical"
-              group-name="col-items"
-              :shouldAcceptDrop="(e, payload) =>  (e.groupName === 'col-items' && !payload.loading)"
-              :get-child-payload="getCardPayload(column.id)"
-              :drop-placeholder="{ className:
-                `bg-primary
-                border-dotted border-2
-                border-primary rounded-lg mx-4 my-2`,
-              animationDuration: '200',
-              showOnTop: true }"
-              drag-class="
-                border-2 border-primary-hover text-white
-                transition duration-100 ease-in z-50
-                transform rotate-6 scale-110"
-              drop-class="transition duration-100
-                ease-in z-50 transform
-                -rotate-2 scale-90"
-              @drop="(e) => onCardDrop(column.id, e)">
-
-                <KanbanItem v-for="item in column.children" :key="item.id" :item="item"></KanbanItem>
-            </Container>
-          </div>
-        </div>
-      </Container>
+    <CardList />
     <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
         <a @click="setStep(2)" class="cursor-pointer"><img src="@/assets/img/CTA-arrow-left.png" class="object-contain" /></a>
-        <a @click="setStep(4)" class="cursor-pointer"><img src="@/assets/img/CTA-finish.png" class="object-contain" /></a>
+        <a @click="checkListFunc" class="cursor-pointer"><img src="@/assets/img/CTA-finish.png" class="object-contain" /></a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Container } from 'vue3-smooth-dnd'
-import { applyDrag } from '@/utils/helpers'
-import KanbanItem from '@/components/PockerItem.vue'
-
-const scene = {
-  type: 'container',
-  props: {
-    orientation: 'horizontal'
-  },
-  children: [
-    {
-      children: [
-        {
-          id: "00",
-          name: 'test11',
-          props: {
-            className:"card",
-            style: {
-              backgroundColor:"ghostwhite"
-            }
-          },
-          type:"draggable",
-          data: '前台職缺列表',
-          text: '職缺詳細內容、點選可發送應徵意願'
-        },
-        {
-          id: "00",
-          name: 'test11',
-          props: {
-            className:"card",
-            style: {
-              backgroundColor:"ghostwhite"
-            }
-          },
-          type:"draggable",
-          data: '應徵者的線上履歷編輯器',
-          text: ''
-        },
-        {
-          id: "00",
-          name: 'test11',
-          props: {
-            className:"card",
-            style: {
-              backgroundColor:"ghostwhite"
-            }
-          },
-          type:"draggable",
-          data: '會員系統',
-          text: '登入、註冊、權限管理'
-        },
-        {
-          id: "00",
-          name: 'test11',
-          props: {
-            className:"card",
-            style: {
-              backgroundColor:"ghostwhite"
-            }
-          },
-          type:"draggable",
-          data: '後台職缺管理功能',
-          text: '資訊上架、下架、顯示應徵者資料'
-        },
-      ],
-      id: "column0",
-      name: 'test1',
-      props: {
-        className:"card-container",
-        orientation:"vertical"
-      },
-      type:"container"
-    },
-    {
-      children: [],
-      id: "column2",
-      name: 'test1',
-      props: {
-        className:"card-container",
-        orientation:"vertical"
-      },
-      type:"container"
-    }
-  ]
-}
+import CardList from '@/components/cardList.vue'
+import CheckStep4 from '@/components/modules/checkStep4.vue'
 
 export default {
-  components: { Container, KanbanItem },
+  components: { CardList, CheckStep4 },
   data () {
     return {
-      scene,
-      upperDropPlaceholderOptions: {
-        className: 'cards-drop-preview',
-        animationDuration: '150',
-        showOnTop: true
-      },
-      dropPlaceholderOptions: {
-        className: 'drop-preview',
-        animationDuration: '150',
-        showOnTop: true
-      }
+      checkList: false,
+
+      fininshArray: null
     }
   },
-  mounted(){},
+  mounted (){},
   methods: {
     setStep (val) {
       this.$emit('setStep', val)
     },
-    onColumnDrop (dropResult) {
-      const scene = Object.assign({}, this.scene)
-      scene.children = applyDrag(scene.children, dropResult)
-      this.scene = scene
+    closeCheckStep4 () {
+      this.checkList = false
     },
-    onCardDrop (columnId, dropResult) {
-      if (dropResult.removedIndex !== null || dropResult.addedIndex !== null) {
-        const scene = Object.assign({}, this.scene)
-        const column = scene.children.filter(p => p.id === columnId)[0]
-        const columnIndex = scene.children.indexOf(column)
-        const newColumn = Object.assign({}, column)
-        newColumn.children = applyDrag(newColumn.children, dropResult)
-        scene.children.splice(columnIndex, 1, newColumn)
-        this.scene = scene
-      }
+    newList (newList) {
+      console.log(newList)
+      this.fininshArray = newList
     },
-    getCardPayload (columnId) {
-      return index => {
-        return this.scene.children.filter(p => p.id === columnId)[0].children[index]
-      }
-    },
-    dragStart () {
-      console.log('drag started')
-    },
-    log (...params) {
-      console.log(...params)
+    checkListFunc () {
+      this.setStep(4)
     }
   }
 }

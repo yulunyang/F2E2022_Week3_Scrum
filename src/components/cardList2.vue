@@ -10,11 +10,11 @@
         <div class="p-4 flex-1">
           <Container
             drag-class="step6-card-ghost"
-            drop-class="step6-card-ghost-drop h-full"
+            drop-class="step6-card-ghost-drop"
             :drop-placeholder="dropPlaceholderOptions"
             :get-child-payload="getChildPayload1"
-            group-name="2"
-            @drop="onDrop('listOne', $event)"
+            group-name="step6"
+            @drop="onDrop1('listOne', $event)"
           >
             <Draggable v-for="(item, $index) in listOne" :key="$index">
               <Card :item="item" />
@@ -24,9 +24,9 @@
       </div>
     </div>
     <div class="w-1/2 p-4 relative">
-      <!-- <div class="warning-pop absolute left-0 top-0 w-full h-full">
+      <div class="warning-pop absolute left-0 top-0 w-full h-full z-50" v-if="isExceedPoints">
         <p class="text-3xl scrum-text-yellow absolute left-1/2 -translate-x-1/2 top-36">超過點數了！</p>
-      </div> -->
+      </div>
       <div class="scrum-bg-black p-3 h-full">
         <div class="flex justify-between items-end mb-4">
           <h6 class="text-3xl text-white">開發 A 組的短衝待辦清單
@@ -36,20 +36,18 @@
         <ProgressBarSquare :points="calcPoints" />
 
         <div class="p-4 flex-1">
-          <Container
-            drag-class="step6-card-ghost"
-            drop-class="step6-card-ghost-drop"
-            :drop-placeholder="dropPlaceholderOptions"
-            :get-child-payload="getChildPayload2"
-            group-name="2"
-            @drag-enter="onDragEnter($event)"
-            @drag-leave="onDragLeave()"
-            @drop="onDrop('listTwo', $event)"
-          >
-            <Draggable v-for="(item, $index) in listTwo" :key="$index">
-              <Card :item="item" />
-            </Draggable>
-          </Container>
+            <Container
+              drag-class="step6-card-ghost"
+              drop-class="step6-card-ghost-drop"
+              :drop-placeholder="dropPlaceholderOptions"
+              :get-child-payload="getChildPayload2"
+              group-name="step6"
+              @drop="onDrop2('listTwo', $event)"
+            >
+              <Draggable v-for="(item, $index) in listTwo" :key="$index">
+                <Card :item="item" />
+              </Draggable>
+            </Container>
         </div>
       </div>
     </div>
@@ -72,6 +70,7 @@ export default {
   },
   data() {
     return {
+      isExceedPoints: false,
       dropPlaceholderOptions: {
         className: "drop-preview",
         animationDuration: "150",
@@ -113,10 +112,12 @@ export default {
   },
   computed: {
     calcPoints () {
+      // return 5
+      let self = this
       let n = 0
-      if (this.listTwo.length > 0) {
-        for (let i = 0; i < this.listTwo.length; i++) {
-          n += this.listTwo[i].points
+      if (self.listTwo.length > 0) {
+        for (let value of self.listTwo) {
+          n += value.points
         }
         return n
       } else {
@@ -125,26 +126,24 @@ export default {
     },
   },
   methods: {
-    onDrop(collection, dropResult) {
-    // this.calcPoints + dropResult.payload.points < 20
+    onDrop1 (collection, dropResult) {
       this[collection] = applyDrag(this[collection], dropResult)
+    },
+    onDrop2 (collection, dropResult) {
+      // this[collection] = applyDrag(this[collection], dropResult)
+      if (this.calcPoints + dropResult.payload.points < 20) {
+        this.listTwo = applyDrag(this.listTwo, dropResult)
+      } else {
+        this.listOne = applyDrag(this.listOne, dropResult)
+      }
     },
     getChildPayload1(index) {
       return this.listOne[index]
     },
     getChildPayload2(index) {
       return this.listTwo[index]
-    },
-    // onDragStart ({index, payload}) {
-    //   console.log({index, payload})
-    // },
-    onDragEnter () {
-      console.log('onDragEnter')
-    },
-    onDragLeave () {
-      console.log('onDragLeave')
     }
-  },
+  }
 };
 </script>
 

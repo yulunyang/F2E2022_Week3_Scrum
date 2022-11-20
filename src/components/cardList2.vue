@@ -33,7 +33,7 @@
           </h6>
           <span class="text-lg scrum-text-yellow">20 點 / 5 人</span>
         </div>
-        <ProgressBarSquare :points="calcPoints" />
+        <ProgressBarSquare :points="calcPoints" :addPoints="addPoints" />
 
         <div class="p-4 flex-1">
             <Container
@@ -42,6 +42,7 @@
               :drop-placeholder="dropPlaceholderOptions"
               :get-child-payload="getChildPayload2"
               group-name="step6"
+              @drag-start="onDragStart($event)"
               @drop="onDrop2('listTwo', $event)"
             >
               <Draggable v-for="(item, $index) in listTwo" :key="$index">
@@ -71,6 +72,7 @@ export default {
   data() {
     return {
       isExceedPoints: false,
+      addPoints: 0,
       dropPlaceholderOptions: {
         className: "drop-preview",
         animationDuration: "150",
@@ -105,7 +107,8 @@ export default {
           points: 8
         }
       ],
-      listTwo: []
+      listTwo: [],
+      timeout: null
     };
   },
   watch: {
@@ -127,21 +130,36 @@ export default {
   },
   methods: {
     onDrop1 (collection, dropResult) {
-      this[collection] = applyDrag(this[collection], dropResult)
+      this.listOne = applyDrag(this.listOne, dropResult)
+      this.isExceedPoints = false
     },
     onDrop2 (collection, dropResult) {
-      // this[collection] = applyDrag(this[collection], dropResult)
       if (this.calcPoints + dropResult.payload.points < 20) {
         this.listTwo = applyDrag(this.listTwo, dropResult)
       } else {
         this.listOne = applyDrag(this.listOne, dropResult)
       }
+      this.isExceedPoints = false
+      this.addPoints = 0
     },
     getChildPayload1(index) {
       return this.listOne[index]
     },
     getChildPayload2(index) {
       return this.listTwo[index]
+    },
+    onDragStart ({payload}) {
+      console.log(payload.points)
+      if (payload.points + this.calcPoints > 20) {
+        this.isExceedPoints = true
+        const timeout = setTimeout(() => {
+          this.isExceedPoints = false
+        }, 2000)
+        clearTimeout(timeout.value)
+      } else {
+        this.addPoints = payload.points
+        this.isExceedPoints = false
+      }
     }
   }
 };

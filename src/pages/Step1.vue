@@ -9,7 +9,7 @@
   </div>
 
   <div class="w-full main-h relative">
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-40">
+    <div class="absolute left-1/2 -translate-x-1/2 z-40">
       <div class="flex justify-center items-center">
         <div><img src="@/assets/img/Sine02.png" /></div>
         <div><img src="@/assets/img/Welcome.png" class="object-contain" /></div>

@@ -2,7 +2,6 @@
   <div id="main">
     <LoadingModule v-if="isLoading" class="z-50 overflow-hidden overflow-x-hidden overflow-y-hidden" />
     <ProgressBar :step="step" />
-    <!-- <Pixelated :is="step"></Pixelated> -->
 
     <Pixelated v-if="isTransition" />
 
@@ -59,7 +58,7 @@ export default {
   setup () {
     const isLoading = ref(false)
     const timer = ref(null)
-    const step = ref(5)
+    const step = ref(0)
     const isTransition = ref(false)
 
     onMounted(() => {

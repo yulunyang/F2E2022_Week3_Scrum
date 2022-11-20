@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-20 flex justify-end items-center container mx-auto z-50">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
         <a @click="setStep(7)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
           <p class="z-10">&lt;</p>

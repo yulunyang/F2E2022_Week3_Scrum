@@ -6,13 +6,13 @@
         <div class="">
           <div class="mb-8"><img src="@/assets/img/role1.png" class="object-contain -scale-x-100 mx-auto" /></div>
 
-          <div v-show="showIdx === 0">
+          <div v-show="result === 0">
             <p class="text-4xl mb-8">咦～你好像還沒完成唷！</p>
           <a @click="closeCheckStep4()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
             <p class="z-10">返回挑戰</p>
           </a>
           </div>
-          <div v-show="showIdx === 1">
+          <div v-show="result === 1">
             <p class="text-4xl mb-8 leading-loose">你做得非常好！<br/>
                 你已經能掌握基礎產品代辦清單的優先度排序<br/>
                 接下來再繼續挑戰吧！</p>
@@ -20,7 +20,7 @@
               <p class="z-10">前往下個挑戰</p>
             </a>
           </div>
-          <div v-show="showIdx === 2">
+          <div v-show="result === 2">
             <p class="text-4xl mb-8">順序可以再調整看看唷！</p>
             <a @click="closeCheckStep4()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
               <p class="z-10">再試試看</p>
@@ -34,26 +34,22 @@
 </template>
 
 <script>
-
 export default {
-  components: { },
-  props: {
-    showIdx: {
-      type: Number,
-      default: 0
-    }
+  components: {
   },
-  data () {
+  props: ['result'],
+  setup (props, ctx) {
+    const closeCheckStep4 = () => {
+      ctx.emit('closeModule')
+    }
+
+    const nextStep = () => {
+      ctx.emit('nextStep')
+    }
+
     return {
-    }
-  },
-  mounted () {},
-  methods: {
-    closeCheckStep4 () {
-      this.$emit('closeCheckStep4')
-    },
-    nextStep () {
-      this.$emit('nextStep')
+      closeCheckStep4,
+      nextStep
     }
   }
 }

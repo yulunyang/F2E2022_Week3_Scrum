@@ -822,7 +822,7 @@ export default {
       if (this.isOpen) {
         const timeout = setTimeout(() => {
           this.isOpen = false
-        }, 100)
+        }, 10)
         clearTimeout(timeout.value)
       }
     }

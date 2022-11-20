@@ -19,7 +19,7 @@ export default {
   props: {
     points: {
       type: Number,
-      default: 13
+      default: 0
     }
   },
   computed: {

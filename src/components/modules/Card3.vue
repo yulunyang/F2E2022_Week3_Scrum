@@ -1,13 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="cursor-move my-2 mx-4 pock-card">
-    <div class="p-4 space-y-2 text-left">
+    <div class="p-4 px-6 space-y-2 text-left">
       <p class="text-2xl">{{ item.data }}</p>
       <p class="text-sm" v-if="item.text">{{ item.text }}</p>
-      <div class="point-text-container scrum-text-yellow inline-flex items-center">
-        <p class="mr-2 point-text">{{ item.points }}點</p>
-        <div class="points mr-1" v-for="n in item.points" :key="n"></div>
-      </div>
     </div>
   </div>
 </template>

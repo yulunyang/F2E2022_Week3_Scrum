@@ -10,7 +10,7 @@
             <p class="text-4xl mb-8 leading-loose">你做得非常好！<br/>
               你已經了解短衝的流程，<br/>
               接下來再繼續挑戰吧！</p>
-            <a @click="closeCheckStep4()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+            <a @click="closeCheckStep()" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
               <p class="z-10">前往下個挑戰</p>
             </a>
           </div>
@@ -43,18 +43,18 @@ export default {
   },
   mounted () {},
   methods: {
-    closeCheckStep4 () {
-      this.$emit('closeCheckStep4')
+    closeCheckStep () {
+      this.$emit('closeCheckStep')
     },
     nextStep () {
-      this.$emit('nextStep')
+      this.$emit('setStep', 9)
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-.checkStep8 {
-  background: rgb(24, 30, 42, 0.8);
-  z-index: 9999;
-}
+  .checkStep8 {
+    background: rgb(24, 30, 42, 0.8);
+    z-index: 9999;
+  }
 </style>

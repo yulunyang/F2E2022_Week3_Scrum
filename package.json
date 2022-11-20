@@ -12,10 +12,8 @@
     "core-js": "^3.8.3",
     "gsap": "^3.11.3",
     "vue": "^3.2.13",
-    "vue-draggable-next": "^2.1.1",
     "vue-router": "^4.0.3",
     "vue3-smooth-dnd": "^0.0.2",
-    "vuedraggable": "^4.1.0",
     "vuex": "^4.0.0"
   },
   "devDependencies": {

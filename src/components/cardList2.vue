@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center container mx-auto ">
+  <div class="step6-card-list-container flex justify-center container mx-auto ">
     <div class="w-1/2 p-4">
       <div class="scrum-bg-black p-3 h-full">
         <div class="mb-4">
@@ -9,11 +9,11 @@
         </div>
         <div class="p-4 flex-1">
           <Container
-            drag-class="card-ghost"
-            drop-class="card-ghost-drop h-full"
+            drag-class="step6-card-ghost"
+            drop-class="step6-card-ghost-drop h-full"
             :drop-placeholder="dropPlaceholderOptions"
             :get-child-payload="getChildPayload1"
-            group-name="1"
+            group-name="2"
             @drop="onDrop('listOne', $event)"
           >
             <Draggable v-for="(item, $index) in listOne" :key="$index">
@@ -33,15 +33,17 @@
           </h6>
           <span class="text-lg scrum-text-yellow">20 點 / 5 人</span>
         </div>
-        <ProgressBarSquare />
+        <ProgressBarSquare :points="calcPoints" />
 
         <div class="p-4 flex-1">
           <Container
-            drag-class="card-ghost"
-            drop-class="card-ghost-drop h-full"
+            drag-class="step6-card-ghost"
+            drop-class="step6-card-ghost-drop"
             :drop-placeholder="dropPlaceholderOptions"
             :get-child-payload="getChildPayload2"
-            group-name="1"
+            group-name="2"
+            @drag-enter="onDragEnter($event)"
+            @drag-leave="onDragLeave()"
             @drop="onDrop('listTwo', $event)"
           >
             <Draggable v-for="(item, $index) in listTwo" :key="$index">
@@ -52,51 +54,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="card-list-container">
-    <div class="card-scene container mx-auto">
-      <div class="flex">
-        <div class="w-1/2 p-4">
-          <div class="mb-4">
-            <h6 class="text-3xl text-white">產品待辦清單
-              <span class="text-lg">Product Backlog</span>
-            </h6>
-          </div>
-          <Container
-            drag-class="card-ghost"
-            drop-class="card-ghost-drop h-full"
-            :drop-placeholder="dropPlaceholderOptions"
-            :get-child-payload="getChildPayload1"
-            group-name="1"
-            @drop="onDrop('listOne', $event)"
-          >
-            <Draggable v-for="(item, $index) in listOne" :key="$index">
-              <Card :item="item" />
-            </Draggable>
-          </Container>
-        </div>
-        <div class="w-1/2 flex">
-          <div class="flex flex-col justify-between text-white light-gray">
-            <p class="origin-center -rotate-90 mt-8">優先度低</p>
-            <p class="origin-center -rotate-90 mb-8">優先度高</p>
-          </div>
-          <div class="p-4 flex-1">
-            <Container
-              drag-class="card-ghost"
-              drop-class="card-ghost-drop h-full"
-              :drop-placeholder="dropPlaceholderOptions"
-              :get-child-payload="getChildPayload2"
-              group-name="1"
-              @drop="onDrop('listTwo', $event)"
-            >
-              <Draggable v-for="(item, $index) in listTwo" :key="$index">
-                <Card :item="item" />
-              </Draggable>
-            </Container>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
+
 </template>
 
 <script>
@@ -152,17 +110,6 @@ export default {
     };
   },
   watch: {
-    // listTwo: {
-    //   handler(newValue, oldValue) {
-    //     // let self = this
-    //     if (newValue !== oldValue) {
-    //       console.log(`更改後${newValue}，更改前${oldValue}`)
-    //       // self.$emit('newList', newValue)
-    //       this.$emit('newList', newValue)
-    //     }
-    //   },
-    //   deep: true
-    // }
   },
   computed: {
     calcPoints () {
@@ -175,45 +122,66 @@ export default {
       } else {
         return 0
       }
-    }
+    },
   },
   methods: {
     onDrop(collection, dropResult) {
+    // this.calcPoints + dropResult.payload.points < 20
       this[collection] = applyDrag(this[collection], dropResult)
     },
     getChildPayload1(index) {
       return this.listOne[index]
     },
     getChildPayload2(index) {
-      // this.$emit('newList', this.listTwo)
       return this.listTwo[index]
+    },
+    // onDragStart ({index, payload}) {
+    //   console.log({index, payload})
+    // },
+    onDragEnter () {
+      console.log('onDragEnter')
+    },
+    onDragLeave () {
+      console.log('onDragLeave')
     }
   },
 };
 </script>
 
-<style scoped>
-.card-list-container {
-  display: flex;
-  justify-content: space-evenly;
+<style lang="scss">
+.step6-card-list-container {
+  .card-list-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .smooth-dnd-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 90%;
+    height: 100%;
+    min-height: 380px;
+  }
+  .step6-card-ghost {
+    transition: transform 0.18s ease;
+    transform: rotateZ(-10deg);
+    background: #FFF205;
+    border: 8px solid #FFFFFF;
+    color: #454545;
+    .point-text-container {
+      color: #454545;
+      .points {
+        background: #454545;
+      }
+    }
+  }
+  .step6-card-ghost-drop {
+    transition: transform 0.18s ease-in-out;
+    transform: rotateZ(0deg);
+  }
+  .warning-pop {
+    background: rgb(24, 30, 42, 0.9);
+  }
 }
-.smooth-dnd-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 90%;
-  height: 100%;
-  min-height: 380px;
-}
-.card-ghost {
-  transition: transform 0.18s ease;
-  transform: rotateZ(5deg);
-}
-.card-ghost-drop {
-  transition: transform 0.18s ease-in-out;
-  transform: rotateZ(0deg);
-}
-.warning-pop {
-  background: rgb(24, 30, 42, 0.9);
-}
+
 </style>

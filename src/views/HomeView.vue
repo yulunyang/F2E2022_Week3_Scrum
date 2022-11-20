@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import LoadingModule from '@/components/modules/LoadingModule'
 import Pixelated from '@/components/modules/Pixelated'
 import Step1 from '@/pages/Step1.vue'
@@ -40,7 +40,6 @@ import Step7 from '@/pages/Step7.vue'
 import Step8 from '@/pages/Step8.vue'
 import Step9 from '@/pages/Step9.vue'
 import Step10 from '@/pages/Step10.vue'
-import { onMounted } from 'vue'
 export default {
   components: {
     LoadingModule,
@@ -60,7 +59,7 @@ export default {
   setup () {
     const isLoading = ref(false)
     const timer = ref(null)
-    const step = ref(8)
+    const step = ref(7)
     const isTransition = ref(false)
 
     onMounted(() => {
@@ -80,7 +79,7 @@ export default {
       if (isTransition.value) {
         const timeout = setTimeout(() => {
           isTransition.value = false
-        }, 2000)
+        }, 1500)
         clearTimeout(timeout.value)
       }
     }

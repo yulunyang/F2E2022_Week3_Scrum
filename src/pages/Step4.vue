@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <CheckStep4 v-if="checkList" @setStep="setStep"  @closeCheckStep4="closeCheckStep4" @newList="newList" />
+  <CheckStep4 v-if="checkList" :result="result" @closeModule="closeModule" @nextStep="nextStep" />
   <div class="w-full main-h relative step4 mt-4">
     <div class="flex container mx-auto">
       <div class="w-1/6 px-3"><img src="@/assets/img/role1.png" class="object-contain -scale-x-100" /></div>
@@ -14,13 +14,13 @@
         </div>
       </div>
     </div>
-    <CardList />
+    <CardList @newList="newList" />
     <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-20 flex justify-end items-center container mx-auto z-50">
       <div class="flex">
         <a @click="setStep(2)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
           <p class="z-10">&lt;</p>
         </a>
-        <a @click="checkListFunc" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+        <a @click="checkList = true" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
           <p class="z-10">我完成了</p>
         </a>
       </div>
@@ -33,27 +33,46 @@ import CardList from '@/components/cardList.vue'
 import CheckStep4 from '@/components/modules/checkStep4.vue'
 
 export default {
-  components: { CardList, CheckStep4 },
+  components: {
+    CardList,
+    CheckStep4
+  },
   data () {
     return {
       checkList: false,
 
-      fininshArray: null
+      fininshArray: []
     }
   },
-  mounted (){},
+  computed: {
+    result () {
+      if (this.fininshArray.length === 4) {
+        let n = 0
+        for (let i = 0; i < this.fininshArray.length; i++) {
+          if (i === this.fininshArray[i].sort) {
+            n++
+          }
+        }
+        if (n === 4) {
+          return 1
+        }
+        return 2
+      }
+      return 0
+    }
+  },
+  mounted () {},
   methods: {
     setStep (val) {
       this.$emit('setStep', val)
     },
-    closeCheckStep4 () {
+    closeModule () {
       this.checkList = false
     },
     newList (newList) {
-      console.log(newList)
       this.fininshArray = newList
     },
-    checkListFunc () {
+    nextStep () {
       this.setStep(4)
     }
   }

@@ -16,13 +16,10 @@
 </template>
 
 <script>
-// import ProgressBarSquare from '@/components/modules/progress-bar-square'
 import CardList from '@/components/cardList2.vue'
 export default {
   components: {
-    // ProgressBarSquare,
     CardList
-    
     },
   data () {
     return {

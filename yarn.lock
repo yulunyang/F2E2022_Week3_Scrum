@@ -5660,16 +5660,6 @@
     "uuid" "^8.3.2"
     "websocket-driver" "^0.7.4"
 
-"sortablejs@^1.14.0":
-  "integrity" "sha512-bv9qgVMjUMf89wAvM6AxVvS/4MX3sPeN0+agqShejLU5z5GX4C75ow1O2e5k4L6XItUyAK3gH6AxSbXrOM5e8w=="
-  "resolved" "https://registry.npmjs.org/sortablejs/-/sortablejs-1.15.0.tgz"
-  "version" "1.15.0"
-
-"sortablejs@1.14.0":
-  "integrity" "sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w=="
-  "resolved" "https://registry.npmjs.org/sortablejs/-/sortablejs-1.14.0.tgz"
-  "version" "1.14.0"
-
 "source-map-js@^1.0.2", "source-map-js@>=0.6.2 <2.0.0":
   "integrity" "sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw=="
   "resolved" "https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz"
@@ -6159,11 +6149,6 @@
   "resolved" "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   "version" "1.1.2"
 
-"vue-draggable-next@^2.1.1":
-  "integrity" "sha512-f5lmA7t6LMaL4viR7dU30zzvqJzaKQs0ymL0Jy9UDT9uiZ2tXF3MzPzEvpTH2UODXZJkT+SnjeV1fXHMsgXLYA=="
-  "resolved" "https://registry.npmjs.org/vue-draggable-next/-/vue-draggable-next-2.1.1.tgz"
-  "version" "2.1.1"
-
 "vue-eslint-parser@^8.0.1":
   "integrity" "sha512-dzHGG3+sYwSf6zFBa0Gi9ZDshD7+ad14DGOdTLjruRVgZXe2J+DcZ9iUhyR48z5g1PqRa20yt3Njna/veLJL/g=="
   "resolved" "https://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-8.3.0.tgz"
@@ -6211,7 +6196,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@*", "vue@^2 || ^3.2.13", "vue@^3.0.1", "vue@^3.0.11", "vue@^3.2.0", "vue@^3.2.13", "vue@^3.2.2", "vue@3.2.41":
+"vue@*", "vue@^2 || ^3.2.13", "vue@^3.0.11", "vue@^3.2.0", "vue@^3.2.13", "vue@3.2.41":
   "integrity" "sha512-uuuvnrDXEeZ9VUPljgHkqB5IaVO8SxhPpqF2eWOukVrBnRBx2THPSGQBnVRt0GrIG1gvCmFXMGbd7FqcT1ixNQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.41.tgz"
   "version" "3.2.41"
@@ -6228,13 +6213,6 @@
   "version" "0.0.2"
   dependencies:
     "smooth-dnd" "^0.12.1"
-
-"vuedraggable@^4.1.0":
-  "integrity" "sha512-FU5HCWBmsf20GpP3eudURW3WdWTKIbEIQxh9/8GE806hydR9qZqRRxRE3RjqX7PkuLuMQG/A7n3cfj9rCEchww=="
-  "resolved" "https://registry.npmjs.org/vuedraggable/-/vuedraggable-4.1.0.tgz"
-  "version" "4.1.0"
-  dependencies:
-    "sortablejs" "1.14.0"
 
 "vuex@^4.0.0":
   "integrity" "sha512-hmV6UerDrPcgbSy9ORAtNXDr9M4wlNP4pEFKye4ujJF8oqgFFuxDCdOLS3eNoRTtq5O3hoBDh9Doj1bQMYHRbQ=="

@@ -1,5 +1,5 @@
 <template>
-  <div class="card-list-container">
+  <div class="step4-card-list-container">
     <div class="card-scene container mx-auto">
       <div class="flex">
         <div class="w-1/2 p-4">
@@ -8,9 +8,10 @@
               <span class="text-lg">Product Backlog</span>
             </h6>
           </div>
+
           <Container
             drag-class="card-ghost"
-            drop-class="card-ghost-drop h-full"
+            drop-class="step4-card-ghost-drop h-full"
             :drop-placeholder="dropPlaceholderOptions"
             :get-child-payload="getChildPayload1"
             group-name="1"
@@ -29,7 +30,7 @@
           <div class="p-4 flex-1">
             <Container
               drag-class="card-ghost"
-              drop-class="card-ghost-drop h-full"
+              drop-class="step4-card-ghost-drop h-full"
               :drop-placeholder="dropPlaceholderOptions"
               :get-child-payload="getChildPayload2"
               group-name="1"
@@ -49,7 +50,7 @@
 <script>
 import { Container, Draggable } from 'vue3-smooth-dnd'
 import { applyDrag } from '@/utils/helpers'
-import Card from "@/components/modules/Card.vue";
+import Card from "@/components/modules/Card.vue"
 export default {
   name: "CardList",
   components: {
@@ -57,7 +58,7 @@ export default {
     Container,
     Draggable,
   },
-  data() {
+  data () {
     return {
       dropPlaceholderOptions: {
         className: "drop-preview",
@@ -91,56 +92,55 @@ export default {
       ],
       listTwo: [
       ]
-    };
-  },
-  watch: {
-    listTwo: {
-      handler(newValue, oldValue) {
-        // let self = this
-        if (newValue !== oldValue) {
-          console.log(`更改後${newValue}，更改前${oldValue}`)
-          // self.$emit('newList', newValue)
-          this.$emit('newList', newValue)
-        }
-      },
-      deep: true
     }
   },
 
   methods: {
-    onDrop(collection, dropResult) {
+    onDrop (collection, dropResult) {
       this[collection] = applyDrag(this[collection], dropResult)
+
+      if (this.listTwo.length === 4) {
+        this.$emit('newList', this.listTwo)
+      }
     },
     getChildPayload1(index) {
       return this.listOne[index]
     },
     getChildPayload2(index) {
-      // this.$emit('newList', this.listTwo)
       return this.listTwo[index]
     }
   },
 };
 </script>
 
-<style scoped>
-.card-list-container {
+<style scoped lang="scss">
+.step4-card-list-container {
   display: flex;
   justify-content: space-evenly;
+  .smooth-dnd-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 90%;
+    height: 100%;
+    min-height: 380px;
+  }
+  .card-ghost {
+    transition: transform 0.18s ease;
+    transform: rotateZ(-10deg);
+    background: #FF52A5;
+    border: 8px solid #FFFFFF;
+    box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.32);
+  }
+  .step4-card-ghost-drop {
+    transition: transform 0.18s ease-in-out;
+    transform: rotateZ(0deg);
+  }
+  .drop-preview {
+    border: 8px dashed rgb(255, 255, 255) !important;
+    margin: 5px;
+    background: transparent !important;
+  }
 }
-.smooth-dnd-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 90%;
-  height: 100%;
-  min-height: 380px;
-}
-.card-ghost {
-  transition: transform 0.18s ease;
-  transform: rotateZ(5deg);
-}
-.card-ghost-drop {
-  transition: transform 0.18s ease-in-out;
-  transform: rotateZ(0deg);
-}
+
 </style>

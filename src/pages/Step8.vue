@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <!-- <CheckStep8 v-if="checkList" @nextStep="nextStep" @closeCheckStep="closeCheckStep" /> -->
+  <CheckStep8 v-if="checkList" @nextStep="nextStep" @closeCheckStep="closeCheckStep" :result="result" />
   <div class="w-full main-h relative step8 mt-4">
     <div class="flex container mx-auto mb-4">
       <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100" /></div>
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="container mx-auto">
-      <DragFlow />
+      <DragFlow @newFlow="newFlow" />
     </div>
 
     <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-20 flex justify-end items-center container mx-auto z-50">
@@ -26,7 +26,7 @@
         <a @click="setStepHandle(6)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
           <p class="z-10">&lt;</p>
         </a>
-        <a @click="setStepHandle(8)" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
+        <a @click="checkList = true" class="cursor-pointer btn-base text-4xl inline-flex justify-center items-center">
           <p class="z-10">完成了～</p>
         </a>
       </div>
@@ -35,21 +35,36 @@
 </template>
 
 <script>
-// import CheckStep8 from '@/components/modules/checkStep8'
+import CheckStep8 from '@/components/modules/checkStep8'
 import DragFlow from '@/components/DragFlow'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'step8',
   components: {
-    // CheckStep8,
+    CheckStep8,
     DragFlow
   },
   data () {
     return {
-      checkList: false
+      checkList: false,
+
+      data1: [],
+      data2: [],
+      data3: []
     }
   },
   mounted () {},
+  computed: {
+    result () {
+      if (this.data1.length > 0 && this.data2.length > 0 && this.data3.length > 0) {
+        if (this.data1[0].sort === 1 && this.data2[0].sort === 2 && this.data3[0].sort === 3) {
+          return { finish: true, sort: true }
+        }
+        return { finish: true, sort: false }
+      }
+      return { finish: false, sort: false }
+    }
+  },
   methods: {
     setStepHandle (val) {
       this.$emit('setStep', val)
@@ -57,12 +72,15 @@ export default {
     closeCheckStep () {
       this.checkList = false
     },
-    newList (newList) {
-      this.fininshArray = newList
+    newFlow (newFlow) {
+      console.log(newFlow)
+      this.data1 = newFlow.ar1
+      this.data2 = newFlow.ar2
+      this.data3 = newFlow.ar3
     },
-    // nextStep () {
-    //   this.setStepHandle(8)
-    // }
+    nextStep () {
+      this.$emit('setStep', 8)
+    }
   }
 }
 </script>

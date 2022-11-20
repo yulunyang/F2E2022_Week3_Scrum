@@ -59,7 +59,7 @@ export default {
   setup () {
     const isLoading = ref(false)
     const timer = ref(null)
-    const step = ref(7)
+    const step = ref(5)
     const isTransition = ref(false)
 
     onMounted(() => {

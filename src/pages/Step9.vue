@@ -22,7 +22,7 @@
     <div class="container mx-auto flex">
       <div class="w-1/2 p-2">
         <p class="scrum-text-yellow text-4xl mb-6">做得好的地方</p>
-        <div class="item text-white text-3xl scrum-bg-black p-3 h-36 flex items-center" v-for="(item, idx) in array1" :key="idx" @click="selected1 = idx" :class="{ 'active': selected1 === idx }">
+        <div class="item text-white text-3xl scrum-bg-black p-3 h-36 flex items-center cursor-pointer" v-for="(item, idx) in array1" :key="idx" @click="selected1 = idx" :class="{ 'active': selected1 === idx }">
           <div class="w-1/12">
             <img src="@/assets/img/Union-arrow.png" class="object-contain block z-10 off" />
             <img src="@/assets/img/Union-arrow-active.png" class="object-contain z-10 on" />
@@ -32,7 +32,7 @@
       </div>
       <div class="w-1/2 p-2">
         <p class="scrum-text-yellow text-4xl mb-6">有哪些可以做得更好？</p>
-        <div class="item text-white text-3xl scrum-bg-black p-3 h-36 flex items-center" v-for="(item, idx) in array2" :key="idx" @click="selected2 = idx" :class="{ 'active': selected2 === idx }">
+        <div class="item text-white text-3xl scrum-bg-black p-3 h-36 flex items-center cursor-pointer" v-for="(item, idx) in array2" :key="idx" @click="selected2 = idx" :class="{ 'active': selected2 === idx }">
           <div class="w-1/12">
             <img src="@/assets/img/Union-arrow.png" class="object-contain block z-10 off" />
             <img src="@/assets/img/Union-arrow-active.png" class="object-contain z-10 on" />

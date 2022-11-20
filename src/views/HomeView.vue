@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="main" class="hidden xl:block">
     <LoadingModule v-if="isLoading" class="LoadingModule overflow-hidden overflow-x-hidden overflow-y-hidden" />
     <ProgressBar :step="step" />
 
@@ -21,6 +21,9 @@
       <div class="hr6 w-full"></div>
       <p class="text-white text-center absolute bottom-1 left-1/2 -translate-x-1/2">2022 F2E 4th week3</p>
     </div>
+  </div>
+  <div class="xl:hidden bg-black w-screen h-screen flex justify-center items-center">
+    <p class="text-white text-xl">請使用桌機版瀏覽以獲得更好的使用者體驗</p>
   </div>
 </template>
 

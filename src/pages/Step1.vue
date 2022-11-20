@@ -10,7 +10,7 @@
   </div>
 
   <div class="w-full main-h relative">
-    <div class="absolute left-1/2 -translate-x-1/2 z-40">
+    <div class="main-inner absolute left-1/2 -translate-x-1/2 z-40">
       <div class="flex justify-center items-center">
         <div><img src="@/assets/img/Sine02.png" /></div>
         <div><img src="@/assets/img/Welcome.png" class="object-contain" /></div>
@@ -18,7 +18,7 @@
       </div>
       <div class="relative flex justify-center mb-6">
         <div><img src="@/assets/img/index.png" class="object-contain" /></div>
-        <div class="absolute left-1/2 bottom-0 -translate-x-1/2 text-2xl text-white quote whitespace-nowrap py-8 px-8 leading-loose tracking-widest">
+        <div class="absolute left-1/2 bottom-0 -translate-x-1/2 text-2xl text-white quote whitespace-nowrap py-8 px-10 leading-loose tracking-widest">
           <p class="typing1"></p>
           <p class="typing2"></p>
           <p class="typing3"></p>
@@ -84,7 +84,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+.main-inner {
+  top: 1%;
+}
 #stars {
   width: 1px;
   height: 1px;

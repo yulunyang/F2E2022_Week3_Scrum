@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <LoadingModule v-if="isLoading" class="z-50 overflow-hidden overflow-x-hidden overflow-y-hidden" />
+    <LoadingModule v-if="isLoading" class="LoadingModule overflow-hidden overflow-x-hidden overflow-y-hidden" />
     <ProgressBar :step="step" />
 
     <Pixelated v-if="isTransition" />
@@ -56,13 +56,13 @@ export default {
     Step10
   },
   setup () {
-    const isLoading = ref(false)
+    const isLoading = ref(true)
     const timer = ref(null)
     const step = ref(0)
     const isTransition = ref(false)
 
     onMounted(() => {
-      // isLoading.value ? setTimeOut() : null
+      isLoading.value ? setTimeOut() : null
     })
 
     const setTimeOut = () => {
@@ -103,5 +103,8 @@ export default {
 <style scoped>
 .hr6 {
   border-top: 32px solid rgba(6, 147, 227, 0.3);
+}
+.LoadingModule {
+  z-index: 999;
 }
 </style>

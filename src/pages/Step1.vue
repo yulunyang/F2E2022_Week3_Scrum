@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
+<div></div>
   <div class="fixed">
     <div id="stars"></div>
     <div id="stars2"></div>
@@ -46,7 +47,7 @@ import { gsap, ScrollTrigger, Draggable, MotionPathPlugin, TextPlugin } from 'gs
 gsap.registerPlugin(gsap, ScrollTrigger, Draggable, MotionPathPlugin, TextPlugin )
 
 export default {
-  components: { },
+  components: {},
   data () {
     return {
     }
@@ -57,6 +58,7 @@ export default {
   methods: {
     setGSAP () {
       const typing = gsap.timeline({
+        delay: 3,
         scrollTrigger: {
           trigger: ".typing1",
           toggleActions: "play pause resume reset",

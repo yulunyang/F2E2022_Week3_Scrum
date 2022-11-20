@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="loading w-full h-screen fixed left-0 top-0 z-50">
+  <div class="loading w-full h-screen fixed left-0 top-0">
     <div class="hover-area"></div>
     <div class="hover-area"></div>
     <div class="hover-area"></div>
@@ -27,7 +27,8 @@
         <div class="stars stars-lg"></div>
     </div>
     <div class="ship">
-        <div class="wrapper">
+      <Vue3Lottie id="loading_pen" :animationData="animationData" class="h-auto" :width="150" />
+        <!-- <div class="wrapper">
             <div class="body side left"></div>
             <div class="body main">
                 <div class="wing left"></div>
@@ -36,18 +37,23 @@
                 <div class="exhaust"></div>
             </div>
             <div class="body side right"></div>
-        </div>
+        </div> -->
     </div>
   </div>
 
 </template>
 
 <script>
-
+import { Vue3Lottie } from 'vue3-lottie'
+import 'vue3-lottie/dist/style.css'
+import animationData from '@/assets/Rocket.json'
 export default {
-  components: { },
+  components: {
+    Vue3Lottie
+  },
   data () {
     return {
+      animationData: animationData
     }
   },
   mounted () {},
@@ -55,10 +61,10 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 :root {
   --ship-size: 10vmin;
-  
+
   --sky-color: #1C1740;
   --ship-color: #F9E2FE;
   --ship-cap-color: crimson;
@@ -66,7 +72,7 @@ export default {
   --ship-window-trim-color: #4C3198;
   --ship-booster-color: #C38382;
   --star-color: white;
-  
+
   --stars-sm-speed: 5s;
   --stars-md-speed: 2s;
   --stars-lg-speed: 1s;
@@ -74,7 +80,7 @@ export default {
 
 @function star-generator($amount) {
   $value: (random(200) * 1vw) (random(200) * 1vh) var(--star-color);
-  
+
   @for $i from 2 through $amount {
     $value: #{$value}, (random(200) * 1vw) (random(200) * 1vh) var(--star-color);
   }
@@ -82,21 +88,12 @@ export default {
   @return $value;
 }
 
-
-// Globals
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
+.loading {
   display: flex;
   position: relative;
   overflow: hidden;
   background-color: var(--sky-color);
+  z-index: 999;
 }
 
 .ship,
@@ -114,194 +111,6 @@ body {
   height: 200%;
   transition: transform 1s ease-out;
 }
-
-
-// Hover areas
-.hover-area {
-  $areas: 20;
-  $split: $areas / 2;
-  
-  flex-grow: 1;
-  z-index: 3;
-    
-  @for $i from 1 through $areas {
-    &:nth-child(#{$i}):hover {
-      @if $i <= $split {
-        & ~ .ship,
-        & ~ .star-field {
-          transform: translate(-50%, -50%) rotate(-90deg + (($i - 1) * 10));
-        }
-      }
-      
-      @else if $i > $split {
-        & ~ .ship,
-        & ~ .star-field {
-          transform: translate(-50%, -50%) rotate(0deg + (($i - ($split + 1)) * 10));
-        }
-      }
-    }
-  }
-  
-  &:active {
-    ~ .star-field {
-      .stars-sm {
-        &:before, &:after { animation-duration: calc(var(--stars-sm-speed) / 2); }
-        &:after { animation-delay: calc(var(--stars-sm-speed) / -4); }
-      }
-      .stars-md { 
-        &:before, &:after { animation-duration: calc(var(--stars-md-speed) / 2); }
-        &:after { animation-delay: calc(var(--stars-md-speed) / -4); }
-      }
-      .stars-lg {
-        &:before, &:after { animation-duration: calc(var(--stars-lg-speed) / 2); }
-        &:after { animation-delay: calc(var(--stars-lg-speed) / -4); }
-      }
-    }
-    
-    ~ .ship {
-      .wrapper {
-        animation: speed-up-ship 80ms linear infinite alternate;
-      }
-      .exhaust {
-        animation: speed-up-exhaust 80ms linear infinite alternate;
-      }
-    }
-  }
-}
-
-
-// Ship
-.ship .wrapper {
-  display: flex;
-}
-
-.ship .body {
-  position: relative;
-  background-color: var(--ship-color);
-  border-radius: 0 0 50% 50% / 76% 76% 15% 15%;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    border-radius: 50% 50% 50% 50% / 76% 76% 25% 25%;
-  }
-}
-
-.ship .main {
-  width: var(--ship-size);
-  height: calc(var(--ship-size) * 1.5);
-  box-shadow: inset rgba(black, 0.15) -0.5vmin 0 2vmin 0;
-  
-  &:before {
-    bottom: 80%;
-    width: 100%;
-    height: 75%;
-    background-color: inherit;
-    box-shadow: inset rgba(black, 0.15) -0.5vmin 1vmin 1vmin 0;
-  }
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 75%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    border: calc(var(--ship-size) / 15) solid var(--ship-window-trim-color);
-    width: calc(var(--ship-size) / 1.8);
-    height: calc(var(--ship-size) / 1.8);
-    box-shadow: 
-      inset rgba(black, 0.075) -2vmin -2vmin 0 0,
-      inset rgba(black, 0.1) -1vmin -1.5vmin 0 0;
-    border-radius: 100%;
-  }
-}
-
-.ship .side {
-  width: calc(var(--ship-size) / 3);
-  height: var(--ship-size);
-  box-shadow: 
-    inset rgba(black, 0.1) -0.5vmin 0 1vmin 0,
-    inset rgba(black, 0.1) 0.5vmin 0 1vmin 0;
-  
-  &:before {
-    bottom: 90%;
-    width: 100%;
-    height: 35%;
-    background-color: var(--ship-cap-color);
-    box-shadow: 
-      inset rgba(black, 0.2) -0.5vmin 1vmin 1vmin 0,
-      inset rgba(white, 0.2) 0.5vmin 1vmin 1vmin 0;
-  }
-  
-  &.left {
-    left: 1px;
-  }
-  
-  &.right {
-    right: 1px;
-  }
-}
-
-.ship .wing {
-  position: absolute;
-  bottom: 2vmin;
-  background-color: var(--ship-wing-color);
-  width: calc(var(--ship-size) / 2);
-  height: calc(var(--ship-size) / 1.5);
-  z-index: 1;
-  box-shadow: 
-    inset rgba(black, 0.1) -0.5vmin 1vmin 1vmin 0,
-    inset rgba(white, 0.1) 0.5vmin 1vmin 1vmin 0;
-  
-  &.left {
-    right: 100%;
-    border-radius: 100% 0 10% 10%;
-  }
-  
-  &.right {
-    left: 100%;
-    border-radius: 0 100% 10% 10%;
-  }
-}
-
-.ship .booster {
-  position: absolute;
-  top: 80%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: calc(var(--ship-size) / 1.2);
-  height: calc(var(--ship-size) / 2.5);
-  background-color: var(--ship-booster-color);
-  border-radius: 0 0 50% 50% / 76% 76% 35% 35%;
-  z-index: -1;
-  box-shadow: 
-    inset rgba(black, 0.3) -0.5vmin 1vmin 1vmin 0,
-    inset rgba(white, 0.3) 0.5vmin 1vmin 1vmin 0,
-    black 0 0 2vmin;
-}
-
-.ship .exhaust {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: calc(var(--ship-size) / 1.4);
-  height: 80%;
-  border-radius: 0 0 100% 100%;
-  background-image: 
-    linear-gradient(
-      to bottom,
-      yellow,
-      transparent 70%
-    );
-  z-index: -2;
-  transform-origin: 50% 0;
-  animation: exhaust 0.1s linear alternate infinite;
-}
-
 
 // Stars
 .stars {

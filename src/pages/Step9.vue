@@ -94,7 +94,6 @@ export default {
       this.checkList = false
     },
     newList (newList) {
-      console.log(newList)
       this.fininshArray = newList
     },
     checkListFunc () {

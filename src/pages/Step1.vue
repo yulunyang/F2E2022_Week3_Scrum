@@ -18,10 +18,13 @@
       </div>
       <div class="relative flex justify-center mb-6">
         <div><img src="@/assets/img/index.png" class="object-contain" /></div>
-        <div class="absolute left-1/2 bottom-0 -translate-x-1/2 text-2xl text-white quote whitespace-nowrap py-8 px-10 leading-loose tracking-widest">
-          <p class="typing1"></p>
-          <p class="typing2"></p>
-          <p class="typing3"></p>
+        <div class="quote absolute left-1/2 bottom-0 -translate-x-1/2 text-2xl text-white whitespace-nowrap leading-loose tracking-widest">
+          <div class="quote-inner absolute flex flex-col items-center justify-center">
+            <p class="typing1"></p>
+            <p class="typing2"></p>
+            <p class="typing3"></p>
+          </div>
+
         </div>
       </div>
       <div class="flex justify-center">
@@ -58,7 +61,7 @@ export default {
   methods: {
     setGSAP () {
       const typing = gsap.timeline({
-        delay: 3,
+        delay: 2.5,
         scrollTrigger: {
           trigger: ".typing1",
           toggleActions: "play pause resume reset",
@@ -167,10 +170,20 @@ export default {
   }
 }
 .quote {
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url('@/assets/img/shineL.png'), url('@/assets/img/shineR.png');
+  background-repeat: no-repeat;
+  background-position: left bottom, right top;
+  min-height: 272px;
+  min-width: 963px;
+}
+.quote-inner {
   background: linear-gradient(0deg, rgba(6, 147, 227, 0.3), rgba(6, 147, 227, 0.3)), #181E2A;
-  border: 16px solid rgba(255, 255, 255, 0.5);
   min-height: 240px;
   min-width: 931px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hr1 {

@@ -73,7 +73,6 @@ export default {
       this.checkList = false
     },
     newFlow (newFlow) {
-      console.log(newFlow)
       this.data1 = newFlow.ar1
       this.data2 = newFlow.ar2
       this.data3 = newFlow.ar3

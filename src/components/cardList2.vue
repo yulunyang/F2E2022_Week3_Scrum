@@ -149,7 +149,6 @@ export default {
       return this.listTwo[index]
     },
     onDragStart ({payload}) {
-      console.log(payload.points)
       if (payload.points + this.calcPoints > 20) {
         this.isExceedPoints = true
         const timeout = setTimeout(() => {

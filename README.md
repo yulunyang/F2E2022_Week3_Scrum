@@ -1,4 +1,4 @@
-![This is a alt text.](./public/view.png)
+![This is a alt text.](./public/view.jpg)
 ## Week3 - Scrum 新手村
 
 ### 比賽網址

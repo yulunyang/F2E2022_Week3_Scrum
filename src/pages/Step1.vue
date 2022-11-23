@@ -13,12 +13,12 @@
     <div class="main-inner absolute left-1/2 -translate-x-1/2 z-40">
       <div class="flex justify-center items-center">
         <div><img src="@/assets/img/Sine02.png" /></div>
-        <div><img src="@/assets/img/Welcome.png" class="object-contain" /></div>
+        <div><img src="@/assets/img/Welcome.png" class="object-contain mx-auto w-4/5" /></div>
         <div><img src="@/assets/img/Shine01.png" /></div>
       </div>
       <div class="relative flex justify-center mb-6">
-        <div><img src="@/assets/img/index.png" class="object-contain" /></div>
-        <div class="quote absolute left-1/2 bottom-0 -translate-x-1/2 text-2xl text-white whitespace-nowrap leading-loose tracking-widest">
+        <div><img src="@/assets/img/index.png" class="object-contain w-4/5" /></div>
+        <div class="quote absolute left-1/2 bottom-0 -translate-x-1/2 text-xl text-white whitespace-nowrap leading-loose tracking-widest">
           <div class="quote-inner absolute flex flex-col items-center justify-center">
             <p class="typing1"></p>
             <p class="typing2"></p>
@@ -174,12 +174,12 @@ export default {
   background-image: url('@/assets/img/shineL.png'), url('@/assets/img/shineR.png');
   background-repeat: no-repeat;
   background-position: left bottom, right top;
-  min-height: 272px;
+  min-height: 240px;
   min-width: 963px;
 }
 .quote-inner {
   background: linear-gradient(0deg, rgba(6, 147, 227, 0.3), rgba(6, 147, 227, 0.3)), #181E2A;
-  min-height: 240px;
+  min-height: 208px;
   min-width: 931px;
   top: 50%;
   left: 50%;

@@ -4,8 +4,8 @@
     <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full">
 
       <div class="flex justify-center mb-10 text-white w-full container mx-auto">
-        <div class="w-1/3 flex justify-center"><img src="@/assets/img/pinkPig.png" class="object-contain" /></div>
-        <div class="w-2/3 text-2xl text-white quote py-8 px-8 leading-loose tracking-widest text-left">
+        <div class="w-1/3 flex justify-center"><img src="@/assets/img/pinkPig.png" class="object-contain w-4/5" /></div>
+        <div class="w-2/3 text-xl text-white quote py-8 px-8 leading-loose tracking-widest text-left">
           <p>我是 TT 資訊，開發 A 組的 PO，粉紅豬。</p>
           <p>PO 也就是產品負責人（Product Owner）。</p>
           <p>產品負責人會負責評估產品待辦清單的價值與重要性，依序排列要執行的優先順序，對齊產品目標。最後排出產品待辦清單（Product Backlog）唷！</p>

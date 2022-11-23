@@ -3,15 +3,15 @@
   <CheckStep8 v-if="checkList" @nextStep="nextStep" @closeCheckStep="closeCheckStep" :result="result" />
   <div class="w-full main-h relative step8 mt-4">
     <div class="flex container mx-auto mb-4">
-      <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100" /></div>
+      <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100 w-4/5" /></div>
       <div class="w-5/6 px-5 ">
         <div class="flex items-center quote py-4 px-8 mb-2 scrum-bg-oliveGreen">
-          <div class="text-white text-2xl text-left">
+          <div class="text-white text-xl text-left">
             <p>那你來試試看，在這經典的 Scrum 流程圖中，這些流程分別代表哪一個會議呢？</p>
           </div>
         </div>
         <div class="flex items-center quote py-4 px-8 scrum-bg-oliveGreen">
-          <div class="text-white text-2xl text-left">
+          <div class="text-white text-xl text-left">
             <p>請你試著把左下方三個方塊，拖拉至正確的位置上。</p>
           </div>
         </div>

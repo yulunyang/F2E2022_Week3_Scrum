@@ -4,7 +4,7 @@
       <div class="flex">
         <div class="w-1/2 p-4">
           <div class="mb-4">
-            <h6 class="text-3xl text-white">產品待辦清單
+            <h6 class="text-2xl text-white">產品待辦清單
               <span class="text-lg">Product Backlog</span>
             </h6>
           </div>

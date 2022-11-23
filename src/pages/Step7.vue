@@ -5,13 +5,13 @@
       <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">
         <div class="flex items-center quote py-4 px-8 mb-2 scrum-bg-oliveGreen">
-          <div class="text-white text-2xl text-left">
+          <div class="text-white text-xl text-left">
             <p>等等等等等，你應該還不知道什麼是 Sprint 吧？<br/>讓我先為你介紹一下～ 仔細聽好唷，等等會考考你！</p>
           </div>
           <!-- <div class="w-1/4"><img src="@/assets/img/Jira.png" class="object-contain" /></div> -->
         </div>
         <div class="flex items-center quote py-4 px-8 scrum-bg-oliveGreen">
-          <div class="text-white text-2xl text-left">
+          <div class="text-white text-xl text-left">
             <p>Sprint 是一個短衝，如同前面敏捷教練所提到的，一次sprint一次sprint週期為2周。開發團隊會在這期間執行開發。在這段期間內，開發團隊舉辦每日站立會議（Daily Scrum） ，追蹤成員間的工作狀況。除了每日站立會議，在 Sprint 的結束也會包含 短衝檢視會議（Sprint Review）、短衝自省會議（Sprint Retrospective）。</p>
           </div>
           <!-- <div class="w-1/4"><img src="@/assets/img/Jira.png" class="object-contain" /></div> -->
@@ -21,20 +21,20 @@
 
     <div class="flex container mx-auto p-6 scrum-bg-gray text-white">
       <div class="w-1/3 py-3 cursor-pointer" :class="{ 'active': selected === 0 }" @click="selected = 0">
-        <p class="text-2xl mb-1">每日站立會議</p>
+        <p class="text-xl mb-1">每日站立會議</p>
         <p>Daily Scrum</p>
       </div>
       <div class="w-1/3 p-3 cursor-pointer" :class="{ 'active': selected === 1 }" @click="selected = 1">
-        <p class="text-2xl mb-1">短衝檢視會議</p>
+        <p class="text-xl mb-1">短衝檢視會議</p>
         <p>Sprint Review</p>
       </div>
       <div class="w-1/3 p-3 cursor-pointer" :class="{ 'active': selected === 2 }" @click="selected = 2">
-        <p class="text-2xl mb-1">短衝自省會議</p>
+        <p class="text-xl mb-1">短衝自省會議</p>
         <p>Sprint Retrospective</p>
       </div>
     </div>
 
-    <div class="container mx-auto p-6 text-3xl text-white text-left leading-relaxed tracking-wider">
+    <div class="container mx-auto p-6 text-2xl text-white text-left leading-relaxed tracking-wider">
       <p v-if="selected === 0">每天都要進行的會議，以 15 分鐘為限制<br/>
       <ul class="list-disc list-inside">
         <li>昨天為團隊的短衝目標（Sprint Goal）做了那些進度 </li>

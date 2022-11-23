@@ -7,8 +7,8 @@
       <div class="flex justify-center mb-16 text-white w-full container mx-auto">
         <div>
           <div class="mb-8"><img src="@/assets/img/Congrats.png" class="object-contain" /></div>
-          <p class="text-5xl mb-8">恭喜通過 Scrum 新手村！</p>
-          <p class="text-4xl">正式加入 TT 資訊 開發 A 組！</p>
+          <p class="text-4xl mb-8">恭喜通過 Scrum 新手村！</p>
+          <p class="text-3xl">正式加入 TT 資訊 開發 A 組！</p>
         </div>
       </div>
 

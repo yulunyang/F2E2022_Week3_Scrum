@@ -59,7 +59,7 @@ export default {
     Step10
   },
   setup () {
-    const isLoading = ref(true)
+    const isLoading = ref(false)
     const timer = ref(null)
     const step = ref(0)
     const isTransition = ref(false)
@@ -103,7 +103,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
 .hr6 {
   border-top: 32px solid rgba(6, 147, 227, 0.3);
 }

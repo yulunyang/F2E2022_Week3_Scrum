@@ -1,5 +1,5 @@
 <template>
-  <div class="drag-flow max-w-7xl mx-auto scrum-bg-gray flex relative p-4">
+  <div class="drag-flow max-w-7xl mx-auto scrum-bg-gray flex relative px-3">
     <div class="w-1/5 px-3 py-12">
       <div class="scrum-bg-yellow scrum-text-black py-2 px-3 text-xl">產品待辦清單</div>
       <div class="mb-2"><img src="@/assets/img/Union-arrow-down.png" class="object-contain -scale-x-100 mx-auto" /></div>

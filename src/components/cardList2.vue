@@ -3,7 +3,7 @@
     <div class="w-1/2 p-4">
       <div class="scrum-bg-black p-3 h-full">
         <div class="mb-4">
-          <h6 class="text-3xl text-white text-left">產品待辦清單
+          <h6 class="text-2xl text-white text-left">產品待辦清單
             <span class="text-lg">Product Backlog</span>
           </h6>
         </div>
@@ -25,11 +25,11 @@
     </div>
     <div class="w-1/2 p-4 relative">
       <div class="warning-pop absolute left-0 top-0 w-full h-full z-50" v-if="isExceedPoints">
-        <p class="text-3xl scrum-text-yellow absolute left-1/2 -translate-x-1/2 top-36">超過點數了！</p>
+        <p class="text-2xl scrum-text-yellow absolute left-1/2 -translate-x-1/2 top-36">超過點數了！</p>
       </div>
       <div class="scrum-bg-black p-3 h-full">
         <div class="flex justify-between items-end mb-4">
-          <h6 class="text-3xl text-white">開發 A 組的短衝待辦清單
+          <h6 class="text-2xl text-white">開發 A 組的短衝待辦清單
           </h6>
           <span class="text-lg scrum-text-yellow">20 點 / 5 人</span>
         </div>

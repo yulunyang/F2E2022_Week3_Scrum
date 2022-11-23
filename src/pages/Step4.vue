@@ -3,10 +3,10 @@
   <CheckStep4 v-if="checkList" :result="result" @closeModule="closeModule" @nextStep="nextStep" />
   <div class="w-full main-h relative step4 mt-4">
     <div class="flex container mx-auto">
-      <div class="w-1/6 px-3"><img src="@/assets/img/role1.png" class="object-contain -scale-x-100" /></div>
+      <div class="w-1/6 px-3"><img src="@/assets/img/role1.png" class="object-contain -scale-x-100 w-4/5" /></div>
       <div class="w-5/6 px-5 ">
         <div class="flex items-center py-8 px-8 scrum-bg-purple">
-          <div class="text-white text-2xl leading-loose tracking-widest text-left w-3/4">
+          <div class="text-white text-xl leading-loose tracking-widest text-left w-3/4">
             <p>請試著把需求放到產品待辦清單，並調整待辦的優先度順序。</p>
             <p>我們公司也推薦使用 Jira 來做任務的管理呢！</p>
           </div>

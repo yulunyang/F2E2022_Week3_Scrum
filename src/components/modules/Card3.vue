@@ -2,7 +2,7 @@
 <template>
   <div class="cursor-move my-2 mx-4 pock-card">
     <div class="p-4 px-6 space-y-2 text-left">
-      <p class="text-2xl">{{ item.data }}</p>
+      <p class="text-xl">{{ item.data }}</p>
       <p class="text-sm" v-if="item.text">{{ item.text }}</p>
     </div>
   </div>

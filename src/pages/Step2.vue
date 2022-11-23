@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-full main-h relative">
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full">
+  <div class="w-full main-h relative flex justify-center">
+    <div class="z-50 w-full mt-5">
       <div class="flex justify-center items-center mb-12">
         <div class="flex">
           <div class="square square1"></div>
@@ -33,24 +33,24 @@
       </div>
       <div class="flex justify-center mb-10 text-white w-full container mx-auto">
         <div class="w-1/3 p-4">
-          <div class="mb-8"><img src="@/assets/img/role1.png" class="object-contain" /></div>
+          <div class="mb-8"><img src="@/assets/img/role1.png" class="object-contain w-3/5" /></div>
           <div class="text-left">
             <h6 class="text-4xl text-white mb-6">產品負責人</h6>
-            <p class="text-2xl max-w-xs">產品方向及願景，定義產品細節，優先級別，交付時間。</p>
+            <p class="text-xl max-w-xs">產品方向及願景，定義產品細節，優先級別，交付時間。</p>
           </div>
         </div>
         <div class="w-1/3 p-4">
-          <div class="mb-8"><img src="@/assets/img/role2.png" class="object-contain" /></div>
+          <div class="mb-8"><img src="@/assets/img/role2.png" class="object-contain w-3/5" /></div>
           <div class="text-left">
             <h6 class="text-4xl text-white mb-6">敏捷教練</h6>
-            <p class="text-2xl max-w-xs">負責團隊 scrum 能合理運作，理解需求及安排產品技術製作時程，確保工程品質。</p>
+            <p class="text-xl max-w-xs">負責團隊 scrum 能合理運作，理解需求及安排產品技術製作時程，確保工程品質。</p>
           </div>
         </div>
         <div class="w-1/3 p-4">
-          <div class="mb-8"><img src="@/assets/img/role3.png" class="object-contain" /></div>
+          <div class="mb-8"><img src="@/assets/img/role3.png" class="object-contain w-3/5" /></div>
           <div class="text-left">
             <h6 class="text-4xl text-white mb-6">開發團隊</h6>
-            <p class="text-2xl max-w-xs">負責開發與交付產品，可為跨領域團隊，由設計師、工程師等不同專業人士組成。</p>
+            <p class="text-xl max-w-xs">負責開發與交付產品，可為跨領域團隊，由設計師、工程師等不同專業人士組成。</p>
           </div>
         </div>
       </div>

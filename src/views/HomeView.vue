@@ -59,7 +59,7 @@ export default {
     Step10
   },
   setup () {
-    const isLoading = ref(false)
+    const isLoading = ref(true)
     const timer = ref(null)
     const step = ref(0)
     const isTransition = ref(false)

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="w-full main-h relative step5 mt-4">
-    <div class="flex container mx-auto mb-4">
+    <div class="flex container mx-auto mb-4 px-4">
       <div class="w-1/6 px-5"><img src="@/assets/img/role1.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">
         <div class="flex items-center quote py-4 px-8 scrum-bg-purple">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <div class="flex container mx-auto mb-4">
+    <div class="flex container mx-auto mb-4 px-4">
       <div class="w-1/6 px-5"><img src="@/assets/img/role2.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-4">
         <div class="flex items-center quote py-4 px-8 mb-2 scrum-bg-green">
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="flex container mx-auto mb-4">
+    <div class="flex container mx-auto mb-4 px-4">
       <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100" /></div>
       <div class="w-5/6 px-5 ">
         <div class="flex items-center quote py-4 px-8 mb-2 scrum-bg-oliveGreen">
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-12 flex justify-end items-center container mx-auto z-50 px-4">
       <div class="flex">
           <a @click="setStep(3)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
             <p class="z-10">&lt;</p>

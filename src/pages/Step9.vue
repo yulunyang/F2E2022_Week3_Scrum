@@ -2,7 +2,7 @@
 <template>
   <CheckStep9 v-if="checkList" @setStep="setStep"  @closeCheckStep4="closeCheckStep4" :result="result" />
   <div class="w-full main-h relative step9 mt-4">
-    <div class="flex container mx-auto mb-12">
+    <div class="flex container mx-auto mb-12 px-4">
       <div class="w-1/6 px-5"><img src="@/assets/img/role3.png" class="object-contain -scale-x-100 w-4/5" /></div>
       <div class="w-5/6 px-5 ">
         <div class="flex items-center quote py-4 px-8 mb-2 scrum-bg-oliveGreen">
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div class="container mx-auto flex">
+    <div class="container mx-auto flex px-4">
       <div class="w-1/2 p-2">
         <p class="scrum-text-yellow text-3xl mb-6">做得好的地方</p>
         <div class="item text-white text-2xl scrum-bg-black p-3 h-36 flex items-center cursor-pointer" v-for="(item, idx) in array1" :key="idx" @click="selected1 = idx" :class="{ 'active': selected1 === idx }">
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-12 flex justify-end items-center container mx-auto z-50 px-4">
       <div class="flex">
         <a @click="setStep(7)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
           <p class="z-10">&lt;</p>

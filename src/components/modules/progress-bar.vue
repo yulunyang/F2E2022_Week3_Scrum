@@ -1,5 +1,5 @@
 <template>
-  <div class="progress-bar w-full z-50">
+  <div class="progress-bar w-full z-50 relative">
     <div class="progress-bar-inner absolute bottom-0 w-full left-0"></div>
 
     <div class="progress-bar-main absolute top-0 w-3/12 left-0" v-if="step > 1" :style="`width: ${calcWidth}%;`" :class="{ 'hiddenFlag': step  === 9 }">

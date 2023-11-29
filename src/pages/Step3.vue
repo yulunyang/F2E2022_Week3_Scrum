@@ -14,7 +14,7 @@
       </div>
 
     </div>
-    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-12 flex justify-end items-center container mx-auto z-50 px-4">
       <!-- <a class="text-white underline underline-offset-2 text-xl" href="https://medium.com/%E6%96%87%E6%80%9D%E4%B8%8D%E8%97%8F%E7%A7%81/%E6%96%87%E6%80%9D%E4%B8%8D%E8%97%8F%E7%A7%81-scrum-%E7%9A%84%E8%A7%92%E8%89%B2%E5%88%86%E5%B7%A5-d1d05818a954">推薦閱讀連結</a> -->
 
       <div class="flex">
@@ -88,7 +88,7 @@ export default {
     &::after {
       content: '';
       width: 100vw;
-      height: 100vh;
+      height: 100%;
       position: absolute;
       left: 0;
       top: 0%;

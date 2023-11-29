@@ -5,7 +5,7 @@
 
     <Pixelated v-if="isTransition" />
 
-    <div class="w-screen main-h overflow-hidden overflow-x-hidden overflow-y-hidden">
+    <div class="main-h overflow-hidden overflow-x-hidden overflow-y-hidden">
       <Step1 v-if="step === 0" @setStep="setStep" />
       <Step2 v-if="step === 1" @setStep="setStep" />
       <Step3 v-if="step === 2" @setStep="setStep" />
@@ -17,10 +17,10 @@
       <Step9 v-if="step === 8" @setStep="setStep" />
       <Step10 v-if="step === 9" @setStep="setStep"/>
     </div>
-    <div class="absolute bottom-0 left-0 w-full">
+    <!-- <div class="absolute bottom-0 left-0 w-full">
       <div class="hr6 w-full"></div>
       <p class="text-white text-center absolute bottom-1 left-1/2 -translate-x-1/2">2022 F2E 4th week3</p>
-    </div>
+    </div> -->
   </div>
   <div class="xl:hidden bg-black w-screen h-screen flex justify-center items-center">
     <p class="text-white text-xl">請使用桌機版瀏覽以獲得更好的使用者體驗</p>
@@ -59,9 +59,9 @@ export default {
     Step10
   },
   setup () {
-    const isLoading = ref(true)
+    const isLoading = ref(false)
     const timer = ref(null)
-    const step = ref(0)
+    const step = ref(3)
     const isTransition = ref(false)
 
     onMounted(() => {
@@ -86,6 +86,7 @@ export default {
       }
     }
     const setStep = (setStep) => {
+      console.log(setStep)
       step.value = setStep
       setTimeOutTransition()
     }
@@ -105,9 +106,9 @@ export default {
 
 <style>
 
-.hr6 {
+/* .hr6 {
   border-top: 32px solid rgba(6, 147, 227, 0.3);
-}
+} */
 .LoadingModule {
   z-index: 999;
 }

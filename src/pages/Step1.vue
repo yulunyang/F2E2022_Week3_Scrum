@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-<div></div>
+
   <div class="fixed">
     <div id="stars"></div>
     <div id="stars2"></div>
@@ -10,30 +10,27 @@
   </div>
 
   <div class="w-full main-h relative">
-    <div class="main-inner absolute left-1/2 -translate-x-1/2 z-40">
+    <div class="main-inner z-40">
       <div class="flex justify-center items-center">
-        <div><img src="@/assets/img/Sine02.png" /></div>
-        <div><img src="@/assets/img/Welcome.png" class="object-contain mx-auto w-4/5" /></div>
-        <div><img src="@/assets/img/Shine01.png" /></div>
+        <Vue3Lottie id="loading_pen" :animationData="shine2" class="h-auto" :width="80" />
+        <div><img src="@/assets/img/Welcome.png" class="object-contain mx-auto" /></div>
+        <Vue3Lottie id="loading_pen" :animationData="shine1" class="h-auto" :width="80" />
       </div>
       <div class="relative flex justify-center mb-6">
         <div><img src="@/assets/img/index.png" class="object-contain w-4/5" /></div>
-        <div class="quote absolute left-1/2 bottom-0 -translate-x-1/2 text-xl text-white whitespace-nowrap leading-loose tracking-widest">
-          <div class="quote-inner absolute flex flex-col items-center justify-center">
+        <div class="quote py-4 absolute left-1/2 -translate-x-1/2 text-2xl text-white whitespace-nowrap leading-loose tracking-widest">
             <p class="typing1"></p>
             <p class="typing2"></p>
             <p class="typing3"></p>
-          </div>
-
         </div>
       </div>
-      <div class="flex justify-center">
+      <div class="btn-chanllage flex justify-center mt-6 opacity-0">
         <a @click="setStep(1)" class="cursor-pointer btn-big inline-flex justify-center items-center">
           <p class="z-10">接受挑戰</p>
         </a>
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 w-full">
+    <div class="absolute bottom-0 left-0 w-full z-0">
       <div class="hr1 w-full"></div>
       <div class="hr2 w-full"></div>
       <div class="hr3 w-full"></div>
@@ -48,11 +45,18 @@
 <script>
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin, TextPlugin } from 'gsap/all'
 gsap.registerPlugin(gsap, ScrollTrigger, Draggable, MotionPathPlugin, TextPlugin )
-
+import { Vue3Lottie } from 'vue3-lottie'
+import 'vue3-lottie/dist/style.css'
+import shine1 from '@/assets/shine1.json'
+import shine2 from '@/assets/shine2.json'
 export default {
-  components: {},
+  components: {
+    Vue3Lottie
+  },
   data () {
     return {
+      shine1: shine1,
+      shine2: shine2
     }
   },
   mounted () {
@@ -78,6 +82,10 @@ export default {
       typing.to(".typing3", {
         text: "請接受挑戰任務，成功通過 Scrum 新手村的挑戰任務吧～",
         duration: 5
+      })
+      typing.to(".btn-chanllage", {
+        opacity: 1,
+        duration: 1
       })
     },
     setStep (val) {
@@ -169,23 +177,30 @@ export default {
     transform: translateY(-2000px);
   }
 }
-.quote {
-  background-color: rgba(255, 255, 255, 0.5);
-  background-image: url('@/assets/img/shineL.png'), url('@/assets/img/shineR.png');
-  background-repeat: no-repeat;
-  background-position: left bottom, right top;
-  min-height: 240px;
-  min-width: 963px;
-}
-.quote-inner {
-  background: linear-gradient(0deg, rgba(6, 147, 227, 0.3), rgba(6, 147, 227, 0.3)), #181E2A;
-  min-height: 208px;
-  min-width: 931px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
+// .quote {
+//   background-color: rgba(255, 255, 255, 0.5);
+//   background-image: url('@/assets/img/shineL.png'), url('@/assets/img/shineR.png');
+//   background-repeat: no-repeat;
+//   background-position: left bottom, right top;
+//   min-height: 140px;
+//   min-width: 963px;
+// }
+// .quote-inner {
+//   background: linear-gradient(0deg, rgba(6, 147, 227, 0.3), rgba(6, 147, 227, 0.3)), #181E2A;
+//   min-height: 108px;
+//   min-width: 931px;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   border: 16px solid rgba(255, 255, 255, 0.5);
+// }
+  .quote {
+    background: linear-gradient(0deg, rgba(6, 147, 227, 0.3), rgba(6, 147, 227, 0.3)), #181E2A;
+    min-height: 108px;
+    min-width: 931px;
+    top: 45%;
+    border: 16px solid rgba(255, 255, 255, 0.5);
+  }
 .hr1 {
   border-top: 4px solid rgba(6, 147, 227, 0.3);
   margin-bottom: 32px;

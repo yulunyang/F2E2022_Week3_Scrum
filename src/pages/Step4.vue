@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <CheckStep4 v-if="checkList" :result="result" @closeModule="closeModule" @nextStep="nextStep" />
-  <div class="w-full main-h relative step4 mt-4">
+  <div class="w-full main-h relative step4 mt-4 px-4">
     <div class="flex container mx-auto">
       <div class="w-1/6 px-3"><img src="@/assets/img/role1.png" class="object-contain -scale-x-100 w-4/5" /></div>
       <div class="w-5/6 px-5 ">
@@ -15,7 +15,7 @@
       </div>
     </div>
     <CardList @newList="newList" />
-    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-12 flex justify-end items-center container mx-auto z-50 px-4">
       <div class="flex">
         <a @click="setStep(2)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
           <p class="z-10">&lt;</p>

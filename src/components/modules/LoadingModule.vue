@@ -28,16 +28,6 @@
     </div>
     <div class="ship">
       <Vue3Lottie id="loading_pen" :animationData="animationData" class="h-auto" :width="150" />
-        <!-- <div class="wrapper">
-            <div class="body side left"></div>
-            <div class="body main">
-                <div class="wing left"></div>
-                <div class="wing right"></div>
-                <div class="booster"></div>
-                <div class="exhaust"></div>
-            </div>
-            <div class="body side right"></div>
-        </div> -->
     </div>
   </div>
 
@@ -92,7 +82,7 @@ export default {
   display: flex;
   position: relative;
   overflow: hidden;
-  background-color: var(--sky-color);
+  background-color: #181E2A;
   z-index: 999;
 }
 

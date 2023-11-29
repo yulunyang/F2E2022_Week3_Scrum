@@ -2,7 +2,7 @@
 <template>
   <div class="mt-4">
     <CardList />
-    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-16 flex justify-end items-center container mx-auto z-50 ">
+    <div class="absolute w-full left-1/2 -translate-x-1/2 bottom-12 flex justify-end items-center container mx-auto z-50 px-4 ">
       <div class="flex">
         <a @click="setStep(4)" class="cursor-pointer btn-base inline-flex justify-center items-center mr-6">
           <p class="z-10">&lt;</p>

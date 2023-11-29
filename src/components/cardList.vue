@@ -118,16 +118,16 @@ export default {
   display: flex;
   justify-content: space-evenly;
   .smooth-dnd-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 90%;
+    // display: flex;
+    // flex-direction: column;
+    // width: 100%;
+    // max-width: 90%;
     height: 100%;
-    min-height: 380px;
+    min-height: 400px;
   }
   .card-ghost {
     transition: transform 0.18s ease;
-    transform: rotateZ(-10deg);
+    transform: rotateZ(-5deg);
     background: #FF52A5;
     border: 8px solid #FFFFFF;
     box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.32);

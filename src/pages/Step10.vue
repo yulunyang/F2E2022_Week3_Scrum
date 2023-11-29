@@ -2,7 +2,7 @@
 <template>
   <div class="w-full main-h relative step10 overflow-hidden mt-4">
     <FireWorks class="z-50" />
-    <div class="absolute left-1/2 bottom-16 -translate-x-1/2 z-50 w-full">
+    <div class="absolute left-1/2 bottom-12 -translate-x-1/2 z-50 w-full">
 
       <div class="flex justify-center mb-16 text-white w-full container mx-auto">
         <div>

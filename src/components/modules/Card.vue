@@ -2,8 +2,9 @@
 <template>
   <div class="cursor-move my-2 mx-4 pock-card">
     <div class="p-4 space-y-2">
-      <p class="text-xl">{{ item.data }}</p>
-      <p class="text-sm" v-if="item.text">{{ item.text }}</p>
+      <div class="w-auto">{{ item.data }}</div>
+      <!-- <p class="text-xl">{{ item.data }}</p> -->
+      <!-- <p class="text-sm" v-if="item.text">{{ item.text }}</p> -->
     </div>
   </div>
 </template>
